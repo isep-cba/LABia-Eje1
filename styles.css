@@ -1,0 +1,294 @@
+/* Variables del Sistema de Diseño - Laboratorio de IA */
+:root {
+    --primary: #6366f1;       /* Azul índigo tecnológico */
+    --primary-dark: #4f46e5;
+    --bg: #f8fafc;            /* Fondo gris pizarra muy claro */
+    --text: #1e293b;          /* Texto principal oscuro */
+    --text-muted: #64748b;    /* Texto secundario / cursivas */
+    --accent: #f59e0b;        /* Ámbar para destaques */
+    --border-color: #e2e8f0;  /* Bordes suaves */
+    --card-bg: #ffffff;       /* Fondo de las tarjetas */
+}
+
+/* Configuración General y Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body { 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+    line-height: 1.7; 
+    color: var(--text); 
+    max-width: 850px; 
+    margin: 40px auto; 
+    padding: 20px; 
+    background: var(--bg); 
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Contenedor Principal (Línea de flujo del laboratorio) */
+.container {
+    border-left: 4px solid var(--primary);
+    padding-left: 25px;
+}
+
+/* Estructura de Bloques (Pasos) */
+.paso { 
+    background: var(--card-bg); 
+    padding: 35px; 
+    border-radius: 16px; 
+    margin-bottom: 24px; 
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Tipografías y Títulos */
+h1 { 
+    color: var(--primary); 
+    font-size: 2rem; 
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+h2 { 
+    color: var(--primary); 
+    font-size: 1.1rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    margin-top: 0;
+    margin-bottom: 20px; 
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+h2::before {
+    content: "◆";
+    margin-right: 12px;
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+em { 
+    color: var(--text-muted); 
+    font-style: italic;
+}
+
+/* Bloques de Consola / Prompts de IA */
+.prompt-box { 
+    background: #1e293b; 
+    color: #f1f5f9;
+    padding: 20px; 
+    border-radius: 12px; 
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; 
+    font-size: 0.95rem;
+    margin: 20px 0;
+    border-left: 5px solid var(--accent);
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+/* Bloques de Criterio / Destacados */
+.highlight { 
+    background: #eff6ff; 
+    padding: 25px; 
+    border-radius: 12px; 
+    border: 1px solid #bfdbfe;
+}
+
+/* Listas */
+ul { 
+    padding-left: 20px; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li { 
+    margin-bottom: 12px; 
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+
+/* Contenedor de la Infografía (RLHF) */
+.rlhf-container {
+    text-align: center;
+    margin: 25px 0 0 0;
+    width: 100%;
+}
+
+.rlhf-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 15px;
+}
+
+.rlhf-text {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    text-align: left;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Ajustes Responsivos Básicos */
+@media (max-width: 768px) {
+    body {
+        margin: 20px auto;
+        padding: 15px;
+    }
+    .container {
+        padding-left: 15px;
+    }
+    .paso {
+        padding: 25px;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+}
+/* --- Sistema de Navegación por Tarjetas (Nuevos Estilos) --- */
+
+/* Oculta los pasos por defecto */
+.paso {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Muestra únicamente el paso activo */
+.paso.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Contenedor de botones inferiores */
+.navigation-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+/* Estilo de los botones */
+.nav-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+}
+
+/* Estado deshabilitado cuando no hay más pasos */
+.nav-btn:disabled {
+    background-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+/* Texto indicador de pasos (ej: Paso 3 de 7) */
+#stepIndicator {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+/* --- Estilos de la Encuesta Inicial --- */
+.poll-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+}
+.poll-question {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+}
+.poll-option-btn {
+    display: block;
+    width: 100%;
+    background: white;
+    border: 2px solid #e2e8f0;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: left;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.poll-option-btn:hover {
+    border-color: #6366f1;
+    background: #f5f3ff;
+    color: #4f46e5;
+}
+/* Barras de resultados */
+.result-bar-container {
+    margin-bottom: 15px;
+}
+.result-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 5px;
+}
+.result-bar {
+    background: #e2e8f0;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.result-fill {
+    background: #6366f1;
+    height: 100%;
+    border-radius: 6px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); /* Animación suave de carga */
+}
+.result-fill.accent {
+    background: #f59e0b; /* Color de acento para la respuesta mayoritaria */
+}
+.poll-feedback {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-style: italic;
+    margin-top: 15px;
+    text-align: center;
+}
