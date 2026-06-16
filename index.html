@@ -21,12 +21,38 @@
         .copy-btn:hover { background: #4338ca; }
         .interactive-input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 12px;
+            margin: 12px 0 20px 0;
             border: 1px solid #cbd5e1;
-            border-radius: 6px;
+            border-radius: 8px;
             font-family: inherit;
+            font-size: 0.95rem;
             resize: vertical;
+            background-color: #f8fafc;
+            transition: border-color 0.2s ease;
+        }
+        .interactive-input:focus {
+            outline: none;
+            border-color: #6366f1;
+            background-color: #ffffff;
+        }
+        .download-btn {
+            display: block;
+            width: 100%;
+            background-color: #10b981; /* Verde esmeralda para el éxito/descarga */
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: background-color 0.2s ease;
+            text-align: center;
+        }
+        .download-btn:hover {
+            background-color: #059669;
         }
         .progress-bar-container {
             display: flex;
@@ -73,13 +99,13 @@
 
         <div class="paso active">
             <div class="lab-cover">
-                <div class="cover-badge">LAB <b>ia</b></div>
+                <div class="cover-badge">MESA DE TRABAJO // LABO IA</div>
                 <h1 class="cover-title">¿Por qué la IA siempre me da la razón?</h1>
                 <div class="cover-decor">
                     <span class="decor-dot"></span>
                     <span class="decor-line"></span>
                 </div>
-                <p class="cover-subtitle">Caso 1: Exploración sobre la Sicofancia y sesgos de confirmación en Modelos de Lenguaje</p>
+                <p class="cover-subtitle">Caso 01: Exploración sobre la Sicofancia y sesgos de confirmación en Modelos de Lenguaje</p>
             </div>
         </div>
 
@@ -138,8 +164,8 @@
             </div>
             <p><b>No nos concentremos en cuál tiene razón, sólo observemos:</b> <br> - ¿Qué tono usó la IA en cada caso?<br> - En la primera respuesta: ¿el modelo cuestionó la premisa o ayudó a redactar la justificación?<br> - En la segunda respuesta: si el modelo había cuestionado, ¿se mantuvo firme o cedió ante la insistencia?<br>- ¿Intentó matizar la postura o se acomodó a ella?<br>- ¿Qué tan convincentes resultan ambas respuestas? </p>
             
-            <label style="font-size: 0.9rem; color: #475569; font-weight: bold;">Tus notas o apuntes de observación (opcional):</label>
-            <textarea class="interactive-input" rows="3" placeholder="¿Qué cambios notaste entre la primera y la segunda respuesta? Esbozá una idea acá antes de avanzar..."></textarea>
+            <label style="font-size: 0.95rem; color: #1e293b; font-weight: bold;">1. Registro de observación del Experimento:</label>
+            <textarea id="notaExperimento" class="interactive-input" rows="4" placeholder="¿Qué cambios de tono o actitud notaste en la IA entre la primera y la segunda respuesta?"></textarea>
         </div>
 
         <div class="paso">
@@ -159,8 +185,11 @@
             <p>Después de esta exploración, quizás aparezca una pregunta interesante: si la IA tiende a acompañar nuestras ideas, ¿cómo conviene conversar con ella?</p>
             <p>Una primera respuesta podría ser aprender algunos trucos para obtener respuestas más críticas, como pedir argumentos en contra de nuestra posición, solicitar objeciones o invitar al modelo a revisar sus propias conclusiones. Pero hay algo más importante que cualquier técnica: comprender qué tipo de herramienta tenemos delante.</p>
             <div class="highlight">
-                <p>La IA no es un juez imparcial ni una fuente de verdad absoluta; es una herramienta de procesamiento de lenguaje. <strong>Construir criterio implica dejar de buscar la "razón" in la IA y aprender a usarla como un espejo crítico</strong>, contrastando siempre sus respuestas con evidencias y perspectivas humanas. No confundas fluidez con comprensión.</p>
+                <p>La IA no es un juez imparcial ni una fuente de verdad absoluta; es una herramienta de procesamiento de lenguaje. <strong>Construir criterio implica dejar de buscar la "razón" en la IA y aprender a usarla como un espejo crítico</strong>, contrastando siempre sus respuestas con evidencias y perspectivas humanas. No confundas fluidez con comprensión.</p>
             </div>
+
+            <label style="font-size: 0.95rem; color: #1e293b; font-weight: bold; display: block; margin-top: 20px;">2. Reflexión sobre el criterio profesional:</label>
+            <textarea id="notaCriterio" class="interactive-input" rows="4" placeholder="Sabiendo que la IA tiende a ser sicofante, ¿cómo cambia tu manera de interpretar sus respuestas a partir de ahora?"></textarea>
         </div>
 
         <div class="paso">
@@ -187,7 +216,7 @@
             <details>
                 <summary>Alternativa 1: Posiciones contrapuestas</summary>
                 <p style="margin-top: 10px;"><b>Una posibilidad</b> es trabajar a partir de posiciones contrapuestas sobre un tema cercano al grupo. Por ejemplo, dos equipos pueden pedirle a la IA argumentos para defender posturas diferentes sobre un mismo asunto. Luego, las respuestas se ponen en común y se analizan colectivamente.</p>
-                <p>La pregunta ya no es cuál respuesta es correcta, sino qué hizo la IA en cada caso:</p>
+                <p>La pregunta ya no es cuál respuesta es correcta, sino qué hizo la IA in cada caso:</p>
                 <ul>
                     <li>¿qué argumentos eligió?</li>
                     <li>¿qué cosas omitió?</li>
@@ -200,7 +229,12 @@
                 <p style="margin-top: 10px;"><b>Otra alternativa</b> consiste en construir entre todos una pregunta que el grupo considere importante y pedir distintas respuestas a diferentes herramientas o configuraciones. El foco puede ponerse en comparar, discutir y analizar las diferencias que aparecen.</p>
             </details>
 
-            <p style="margin-top: 20px;">En ambos casos, la experiencia gana potencia cuando la interacción con la IA no termina en la pantalla. Lo interesante ocurre después: cuando las respuestas circulan, se contrastan, se discuten y se convierten en objeto de conversación. <br>Porque una de las cuestiones más relevantes que plantea la inteligencia artificial para la escuela no es cómo obtener respuestas más rápidas, sino cómo seguir construyendo espacios donde las ideas puedan ponerse en común, confrontarse y enriquecerse con la mirada de otros.<br><b>La IA puede aportar nuevas voces a la conversación. Pero la conversación sigue siendo una tarea profundamente humana.</b></p>
+            <p style="margin-top: 20px;">En ambos casos, la experiencia gana potencia cuando la interacción con la IA no termina en la pantalla. Lo interesante ocurre después: cuando las respuestas circulan, se contrastan, se discuten y se convierten en objeto de conversación.</p>
+            
+            <label style="font-size: 0.95rem; color: #1e293b; font-weight: bold; display: block; margin-top: 25px;">3. Ideas para la bajada al aula:</label>
+            <textarea id="notaAula" class="interactive-input" rows="4" placeholder="¿Cómo o con qué temática cercana a tus alumnos adaptarías esta experiencia de debate en tus clases?"></textarea>
+
+            <button class="download-btn" onclick="descargarBitacora()">💾 Descargar mi Bitácora de Trabajo (.txt)</button>
         </div>
 
         <div class="navigation-controls">
@@ -274,6 +308,52 @@
                 document.getElementById('barAyuda').style.width = '38%';
                 document.getElementById('barAcompana').style.width = '62%';
             }, 50);
+        }
+
+        // FUNCIÓN MAGICA: Compila las tres respuestas y genera la descarga del archivo local
+        function descargarBitacora() {
+            const exp = document.getElementById('notaExperimento').value || "No completado.";
+            const crit = document.getElementById('notaCriterio').value || "No completado.";
+            const aula = document.getElementById('notaAula').value || "No completado.";
+
+            // Estructuramos el contenido del texto plano de forma prolija
+            const contenidoTexto = 
+`==================================================
+  BITÁCORA DE TRABAJO - LABORATORIO DE IA (CASO 1)
+  Organización: ISEP Córdoba
+==================================================
+
+EJE: ¿Por qué la IA siempre me da la razón?
+Exploración sobre Sicofancia y aprendizaje por refuerzo (RLHF).
+
+--------------------------------------------------
+1. REGISTRO DE OBSERVACIÓN DEL EXPERIMENTO:
+--------------------------------------------------
+${exp}
+
+--------------------------------------------------
+2. REFLEXIÓN SOBRE EL CRITERIO PROFESIONAL:
+--------------------------------------------------
+${crit}
+
+--------------------------------------------------
+3. IDEAS PARA LA BAJADA AL AULA:
+--------------------------------------------------
+${aula}
+
+==================================================
+Documento generado de manera local desde el laboratorio interactivo.
+==================================================`;
+
+            // Creamos un elemento invisible en la web para disparar la descarga directa
+            const blob = new Blob([contenidoTexto], { type: "text/plain;charset=utf-8" });
+            const enlaceInvisible = document.createElement("a");
+            enlaceInvisible.href = URL.createObjectURL(blob);
+            enlaceInvisible.download = "Bitacora_Laboratorio_IA_Caso1.txt";
+            
+            document.body.appendChild(enlaceInvisible);
+            enlaceInvisible.click();
+            document.body.removeChild(enlaceInvisible);
         }
     </script>
 </body>
