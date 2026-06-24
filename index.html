@@ -378,7 +378,7 @@
             color: var(--gris-68);
         }
 
-        /* Caja de Encuesta (Caso 1) */
+        /* Caja de Encuesta Interactiva */
         .poll-box {
             background: rgba(28, 153, 215, 0.05);
             border: 1px solid var(--celeste);
@@ -403,40 +403,33 @@
             font-family: var(--fuente-texto);
             font-size: 0.9rem;
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
         }
         .poll-option-btn:hover {
             background: rgba(28, 153, 215, 0.1);
         }
-        .result-bar-container {
-            margin-bottom: 12px;
-        }
-        .result-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
+        .poll-option-btn.selected {
+            background: rgba(28, 153, 215, 0.15);
+            border-color: var(--azul-oscuro);
             font-weight: 600;
-            margin-bottom: 4px;
-        }
-        .result-bar {
-            background: rgba(104, 104, 104, 0.15);
-            height: 12px;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        .result-fill {
-            background: var(--celeste);
-            height: 100%;
-            border-radius: 6px;
-            transition: width 0.8s cubic-bezier(0.1, 1, 0.1, 1);
-        }
-        .result-fill.accent {
-            background: var(--naranja);
         }
         .poll-feedback {
             font-size: 0.85rem;
             color: var(--gris-68);
             margin-top: 10px;
+            background: rgba(50, 164, 48, 0.08);
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 3px solid var(--verde-ingles);
+        }
+        
+        /* Caja de Recuperación de Encuesta */
+        .recall-box {
+            background: rgba(175, 65, 120, 0.05);
+            border-left: 4px solid var(--moradito);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -444,6 +437,7 @@
 
     <div class="container">
 
+        <!-- DASHBOARD PRINCIPAL -->
         <div id="mainDashboard" class="dashboard">
             
             
@@ -469,6 +463,7 @@
         </div>
 
 
+        <!-- CONTENEDOR CASO 1 -->
         <div id="caso1Container" class="contenedor-caso">
             <div class="progress-bar-container" id="progressBar1">
                 <div class="progress-segment" title="Carátula"></div>
@@ -480,13 +475,14 @@
                 <div class="progress-segment" title="Comunidad"></div>
             </div>
 
+            <!-- Paso 1: Carátula -->
             <div class="paso">
                 <div class="lab-cover">
                     <div class="cover-badge">LAB <b>ia</b></div>
                     <h1 class="cover-title">¿Por qué la IA siempre me da la razón?</h1>
                     <p style="color: var(--naranja); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
-            ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
-        </p>
+                        ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
+                    </p>
                     <div class="cover-decor">
                         <span class="decor-dot"></span>
                         <span class="decor-line"></span>
@@ -494,31 +490,27 @@
                 </div>
             </div>
 
-                        <div class="paso">
+            <!-- Paso 2: Introducción con la Encuesta Dinámica Solicitada -->
+            <div class="paso">
                 <h1>¿Por qué la IA siempre me da la razón?</h1>
                 <p>Muchas veces usamos la IA para buscar ideas, resolver dudas o pedir una segunda opinión. Pero hay una pregunta interesante que no siempre nos hacemos:</p>
                 
                 <div class="poll-box">
-                    <p class="poll-question">Cuando conversamos con una IA, ¿nos está ayudando a pensar o simplemente está acompañando lo que ya pensamos?</p>
+                    <p class="poll-question">Cuando usás una IA para resolver una duda o pedir una opinión, ¿qué esperás que haga?</p>
                     <div id="pollOptions">
-                        <button class="poll-option-btn" onclick="submitPoll('ayuda')">Nos está ayudando a pensar de manera crítica</button>
-                        <button class="poll-option-btn" onclick="submitPoll('acompana')">Simplemente está acompañando lo que ya pensamos</button>
+                        <button class="poll-option-btn" onclick="submitPoll('Que me ayude a pensar nuevas perspectivas.', this)">Que me ayude a pensar nuevas perspectivas.</button>
+                        <button class="poll-option-btn" onclick="submitPoll('Que me dé una respuesta clara y útil.', this)">Que me dé una respuesta clara y útil.</button>
+                        <button class="poll-option-btn" onclick="submitPoll('Que cuestione mis ideas cuando sea necesario.', this)">Que cuestione mis ideas cuando sea necesario.</button>
+                        <button class="poll-option-btn" onclick="submitPoll('Que acompañe el enfoque que le propongo.', this)">Que acompañe el enfoque que le propongo.</button>
                     </div>
-                    <div id="pollResults" style="display: none;">
-                        <div class="result-bar-container">
-                            <div class="result-labels"><span>Nos ayuda a pensar</span><span id="pctAyuda">38%</span></div>
-                            <div class="result-bar"><div id="barAyuda" class="result-fill" style="width: 0%;"></div></div>
-                        </div>
-                        <div class="result-bar-container">
-                            <div class="result-labels"><span>Acompaña lo que pensamos</span><span id="pctAcompana">62%</span></div>
-                            <div class="result-bar"><div id="barAcompana" class="result-fill accent" style="width: 0%;"></div></div>
-                        </div>
-                        <p class="poll-feedback">📊 Así han votado otros participantes del laboratorio. ¡Avancemos para ponerlo a prueba!</p>
+                    <div id="pollFeedbackContainer" style="display: none;">
+                        <p class="poll-feedback">💾 <b>No hay respuestas correctas. Guardamos tu elección.</b> Volveremos sobre ella al final de la mesa de trabajo.</p>
                     </div>
                 </div>
                 <p style="margin-top: 20px;">En esta exploración vamos a poner a prueba algo bastante curioso: cuánto influye la forma en que presentamos una idea en la respuesta que obtenemos.</p>
             </div>
 
+            <!-- Paso 3: Experimento -->
             <div class="paso">
                 <h2>Experimento</h2>
                 <p><strong>Experimento 1: Dos certezas opuestas.</strong></p>
@@ -538,6 +530,7 @@
                 <textarea id="notaExperimento1" class="interactive-input" rows="4" placeholder="¿Qué cambios de tono o comportamiento notaste en la IA entre la primera y la segunda respuesta?"></textarea>
             </div>
 
+            <!-- Paso 4: Análisis -->
             <div class="paso">
                 <h2>¿Qué está pasando?</h2>
                 <p>Quizás notaste algo llamativo. En muchos casos, la IA parece especialmente predispuesta a acompañar el marco que le proponemos.<br>A veces lo hace de forma muy evidente. Otras veces introduce matices o reparos, pero igualmente intenta construir una respuesta que sea “aprobada” por quien pregunta.</p>
@@ -545,12 +538,23 @@
                 
                 <div class="rlhf-container">
                     <img src="RHLF.png" alt="Infografía RLHF" class="rlhf-img">
-                    <p class="rlhf-text">¿Cómo funciona el RLHF? Seres humanos evalúan pares de respuestas que el modelo entregó. Dado que las respuestas que validan y confirman lo que el usuario postula tienden a recibir mejores puntuaciones, el modelo, por lo tanto, “aprende” a entregar respuestas que validan las afirmaciones del usuario. Este proceso es la razón por la cuál la IA suele mostrar lo que se denomina como sicofancia: la tendencia a validar lo que el usuario propone para obtener un feedback positivo. No es falta de inteligencia, es un mecanismo de optimización.</p>
+                    <p class="rlhf-text">¿Cómo funciona el RLHF? Seres humanos evalúan pares de respuestas que el modelo entregó. Dado que las respuestas que validan y confirman lo que el usuario postula tienden a recibir mejores puntuaciones, el modelo, por lo tanto, “aprene” a entregar respuestas que validan las afirmaciones del usuario. Este proceso es la razón por la cuál la IA suele mostrar lo que se denomina como sicofancia: la tendencia a validar lo que el usuario propone para obtener un feedback positivo. No es falta de inteligencia, es un mecanismo de optimización.</p>
                 </div>
             </div>
 
+            <!-- Paso 5: Criterio con la Caja de Recuperación de Memoria Requerida -->
             <div class="paso">
                 <h2>Construyendo criterio</h2>
+                
+                <!-- CAJA DE RECUPERACIÓN INTERACTIVA -->
+                <div class="recall-box" id="recallBox1">
+                    <p style="margin-bottom: 0; font-size: 0.95rem; color: var(--negro-azulado);">
+                        🔄 <b>Recordando tu postura inicial:</b> Al comenzar este laboratorio indicaste que de una IA esperás: 
+                        <span id="userChoiceText" style="font-weight: 600; color: var(--moradito);">[Aún no seleccionaste una opción]</span>. 
+                        Ahora que experimentaste y conocés el fenómeno de la <i>sicofancia</i>, ¿considerás que las interfaces actuales cumplen con esa expectativa o tienden a distorsionarla?
+                    </p>
+                </div>
+
                 <p>Después de esta exploración, quizás aparezca una pregunta interesante: si la IA tiende a acompañar nuestras ideas, ¿cómo conviene conversar con ella?</p>
                 <details>
                     <summary>Comprender qué herramienta tenemos delante</summary>
@@ -560,7 +564,7 @@
                 <details>
                     <summary>¿Y qué lugar le damos a sus respuestas?</summary>
                     <p style="margin-top: 10px;">La IA puede ser una buena compañera para explorar una idea, pero no debería convertirse en la última palabra sobre ella.</p>
-                    <p>Cuanto más importantes sean las decisiones, las interpretaciones o los conocimientos en juego, más necesario será sostener aquello que ninguna herramienta puede reemplazar por nosotros: contrastar fuentes, consider otras perspectivas, revisar evidencias y ejercer nuestro propio juicio.</p>
+                    <p>Cuanto más importantes sean las decisiones, las interpretaciones o los conocimientos en juego, más necesario será sostener aquello que ninguna herramienta puede reemplazar por nosotros: contrastar fuentes, considerar otras perspectivas, revisar evidencias y ejercer nuestro propio juicio.</p>
                 </details>
                 <div class="highlight">
                     <p>En definitiva, construir criterio frente a la IA no consiste solamente en aprender a preguntarle mejor. Consiste, sobre todo, en aprender a relacionarnos con sus respuestas sin confundir fluidez con verdad, acuerdo con conocimiento ni seguridad con comprensión.</p>
@@ -570,6 +574,7 @@
                 <textarea id="notaCriterio1" class="interactive-input" rows="4" placeholder="Sabiendo que la IA puede tener tendencia a la sicofancia, ¿cómo cambia tu manera de interpretar sus respuestas y de integrarla en tus rutinas de estudio o trabajo?"></textarea>
             </div>
 
+            <!-- Paso 6: Debate -->
             <div class="paso">
                 <h2>IA y algo más</h2>
                 <p>Muchas de las preguntas que aparecen cuando observamos cómo funciona una IA remiten a problemas más amplios: cómo construimos conocimiento, en quién confiamos, cómo tomamos decisiones o qué lugar ocupan las tecnologías en nuestra vida cotidiana. <br>Te proponemos algunas preguntas para seguir pensando más allá de la herramienta.</p>
@@ -587,6 +592,7 @@
                 </ul>
             </div>
 
+            <!-- Paso 7: Comunidad -->
             <div class="paso">
                 <h2>EN EL AULA</h2>
                 <p>Esta exploración puede convertirse en una gran oportunidad para conversar sobre algo que excede a la inteligencia artificial: cómo influyen nuestras preguntas, creencias y expectativas en las respuestas que obtenemos.</p>
@@ -617,10 +623,10 @@
         </div>
 
 
+        <!-- CONTENEDOR CASO 2 (MANTENIDO EXACTAMENTE IGUAL A TU ÚLTIMA VERSIÓN) -->
         <div id="caso2Container" class="contenedor-caso">
             <div class="progress-bar-container" id="progressBar2">
                 <div class="progress-segment" title="Título"></div>
-                
                 <div class="progress-segment" title="Introducción"></div>
                 <div class="progress-segment" title="Experimento"></div>
                 <div class="progress-segment" title="Análisis"></div>
@@ -634,8 +640,8 @@
                     <div class="cover-badge">LAB <b>ia</b></div>
                     <h1 class="cover-title">"Lo que le decís define lo que recibís"</h1>
                     <p style="color: var(--naranja); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
-            ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
-        </p>
+                        ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
+                    </p>
                     <div class="cover-decor">
                         <span class="decor-dot"></span>
                         <span class="decor-line"></span>
@@ -643,7 +649,6 @@
                 </div>
             </div>
 
-            
             <div class="paso">
                 <h1>Lo que le decís define lo que recibís</h1>
                 <p>Cuando trabajamos en equipo con nuestros compañeros el trabajo se hace más fácil porque todos compartimos un conocimiento común sobre nuestro entorno, nuestro estilo de trabajo, nuestras metas y limitaciones.</p>
@@ -718,7 +723,7 @@
                     <span class="block-to-copy">Contexto: [Quién sos / En qué situación o marco te encontrás]<br>
                     Tarea: [Qué necesitás que el modelo haga exactamente]<br>
                     Audiencia: [A quién está dirigido el resultado final]<br>
-                    Formato: [Cómo querés que se organice y presente la respuesta]<br>
+                    Formato: [Cómo querés que se organize y presente la respuesta]<br>
                     Restricciones: [Qué límites fijás / Qué elementos NO debe incluir]</span>
                 </div>
             </div>
@@ -757,10 +762,11 @@
         </div>
 
 
+        <!-- CONTROLES DE NAVEGACIÓN GLOBAL -->
         <div id="navigationControls" class="navigation-controls" style="display: none;">
             <button id="prevBtn" class="nav-btn">&larr; Anterior</button>
             <button class="home-btn" onclick="volverAlMenu()">🏠 Volver al Menú</button>
-            <span id="stepIndicator">Paso 1 de 8</span>
+            <span id="stepIndicator">Paso 1 de 7</span>
             <button id="nextBtn" class="nav-btn">Siguiente &rarr;</button>
         </div>
 
@@ -771,6 +777,7 @@
         let currentIndex = 0;
         let pasosActivos = [];
         let segmentosActivos = [];
+        let eleccionUsuario = ""; // Variable persistente en memoria para la encuesta
 
         const mainDashboard = document.getElementById('mainDashboard');
         const caso1Container = document.getElementById('caso1Container');
@@ -872,13 +879,18 @@
             });
         }
 
-        function submitPoll(option) {
-            document.getElementById('pollOptions').style.display = 'none';
-            document.getElementById('pollResults').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('barAyuda').style.width = '38%';
-                document.getElementById('barAcompana').style.width = '62%';
-            }, 50);
+        // LÓGICA DE CAPTURA DE ENCUESTA INTERACTIVA
+        function submitPoll(option, selectedButton) {
+            eleccionUsuario = option;
+            
+            const botones = document.getElementById('pollOptions').querySelectorAll('.poll-option-btn');
+            botones.forEach(btn => btn.classList.remove('selected'));
+            selectedButton.classList.add('selected');
+            
+            document.getElementById('pollFeedbackContainer').style.display = 'block';
+            
+            // Inyección en tiempo real en la caja de recuperación del paso 5
+            document.getElementById('userChoiceText').innerText = `"${eleccionUsuario}"`;
         }
 
         function descargarBitacora(caso) {
@@ -888,6 +900,7 @@
                 const exp1 = document.getElementById('notaExperimento1').value || "No completado.";
                 const crit1 = document.getElementById('notaCriterio1').value || "No completado.";
                 const aula1 = document.getElementById('notaAula1').value || "No completado.";
+                const encuestaPrevia = eleccionUsuario || "No seleccionada.";
                 
                 contenidoTexto = 
 `==================================================
@@ -897,6 +910,11 @@
 
 EJE: ¿Por qué la IA siempre me da la razón?
 Exploración sobre Sicofancia y aprendizaje por refuerzo (RLHF).
+
+--------------------------------------------------
+0. EXPECTATIVA INICIAL SELECCIONADA EN LA ENCUESTA:
+--------------------------------------------------
+${encuestaPrevia}
 
 --------------------------------------------------
 1. NOTAS DE OBSERVACIÓN DEL EXPERIMENTO:
@@ -936,7 +954,7 @@ Exploración sobre la transferencia de contexto implícito y marcos CLEAR.
 ${exp2}
 
 --------------------------------------------------
-2. REFLEXIÓN SOBRE EL CONTEXTO EXPLICITADO:
+2. REFLEXION SOBRE EL CONTEXTO EXPLICITADO:
 --------------------------------------------------
 ${crit2}
 
