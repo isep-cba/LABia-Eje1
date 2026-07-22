@@ -431,6 +431,11 @@
             border-radius: 0 8px 8px 0;
             margin-bottom: 20px;
         }
+        .top-bar {
+    display: flex;
+    justify-content: flex-start; /* O 'flex-end' si preferís que el botón quede a la derecha */
+    margin-bottom: 15px;
+}
     </style>
 </head>
 <body>
@@ -442,29 +447,37 @@
             
             
             <div class="grid-casos">
-                <div class="tarjeta-caso" onclick="iniciarCaso(1)">
-                    <div>
-                        <div class="tarjeta-badge">MESA DE TRABAJO 01</div>
-                        <h2 class="tarjeta-titulo">¿Por qué la IA siempre me da la razón?</h2>
-                        <p class="tarjeta-desc">¿Alguna vez notaste que la inteligencia artificial suele amoldarse a tus opiniones cuando le preguntás algo? Vamos a investigar cómo influye nuestra forma de hablarle en las respuestas que nos devuelve.</p>
-                    </div>
-                    <button class="btn-iniciar">Iniciar Experimento &rarr;</button>
-                </div>
-                
-                <div class="tarjeta-caso" onclick="iniciarCaso(2)">
-                    <div>
-                        <div class="tarjeta-badge">MESA DE TRABAJO 02</div>
-                        <h2 class="tarjeta-titulo">Lo que le decís define lo que recibís</h2>
-                        <p class="tarjeta-desc">El secreto de una buena respuesta está en la información que le damos a la herramienta. Acá vamos a poner a prueba cómo cambia el resultado cuando somos más específicos y claros en nuestros pedidos.</p>
-                    </div>
-                    <button class="btn-iniciar">Iniciar Experimento &rarr;</button>
-                </div>
-            </div>
+    <!-- Título general agregado en la parte superior -->
+    <h2 style="grid-column: 1 / -1; font-size: 1.6rem; color: var(--azul-oscuro); text-align: center; margin-bottom: 10px;">
+        Descifrando el Lenguaje Artificial
+    </h2>
+
+    <div class="tarjeta-caso" onclick="iniciarCaso(1)">
+        <div>
+            <div class="tarjeta-badge">CASO DE EXPLORACIÓN 01</div>
+            <h2 class="tarjeta-titulo">¿Por qué la IA siempre me da la razón?</h2>
+            <p class="tarjeta-desc">¿Alguna vez notaste que la inteligencia artificial suele amoldarse a tus opiniones cuando le preguntás algo? Vamos a investigar cómo influye nuestra forma de hablarle en las respuestas que nos devuelve.</p>
+        </div>
+        <button class="btn-iniciar">Iniciar &rarr;</button>
+    </div>
+    
+    <div class="tarjeta-caso" onclick="iniciarCaso(2)">
+        <div>
+            <div class="tarjeta-badge">CASO DE EXPLORACIÓN 02</div>
+            <h2 class="tarjeta-titulo">Lo que le decís define lo que recibís</h2>
+            <p class="tarjeta-desc">El secreto de una buena respuesta está en la información que le damos a la herramienta. Acá vamos a poner a prueba cómo cambia el resultado cuando somos más específicos y claros en nuestros pedidos.</p>
+        </div>
+        <button class="btn-iniciar">Iniciar &rarr;</button>
+    </div>
+</div>
         </div>
 
 
         <!-- CONTENEDOR CASO 1 -->
         <div id="caso1Container" class="contenedor-caso">
+            <div class="top-bar">
+        <button class="home-btn" onclick="volverAlMenu()">🏠 Volver al Menú</button>
+    </div>
             <div class="progress-bar-container" id="progressBar1">
                 <div class="progress-segment" title="Carátula"></div>
                 <div class="progress-segment" title="Introducción"></div>
@@ -479,7 +492,7 @@
             <!-- Paso 1: Carátula -->
             <div class="paso">
                 <div class="lab-cover">
-                    <div class="cover-badge">LAB <b>ia</b></div>
+                    <div class="cover-badge">CASO DE EXPLORACIÓN</div>
                     <h1 class="cover-title">¿Por qué la IA siempre me da la razón?</h1>
                     <p style="color: var(--naranja); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
                         ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
@@ -494,10 +507,10 @@
             <!-- Paso 2: Introducción con la Encuesta Dinámica Solicitada -->
             <div class="paso">
                 <h1>¿Por qué la IA siempre me da la razón?</h1>
-                <p>Muchas veces usamos la IA para buscar ideas, resolver dudas o pedir una segunda opinión. Pero hay una pregunta interesante que no siempre nos hacemos:</p>
+                <p>Muchas veces usamos la IA para buscar ideas, resolver dudas o pedir una segunda opinión. Pero hay una pregunta que proponemos te hagas:</p>
                 
                 <div class="poll-box">
-                    <p class="poll-question">Cuando usás una IA para resolver una duda o pedir una opinión, ¿qué esperás que haga?</p>
+                    <p class="poll-question">Cuando usás una IA para conversar, ¿cuál es el uso que más haces?</p>
                     <div id="pollOptions">
                         <button class="poll-option-btn" onclick="submitPoll('Que me ayude a pensar nuevas perspectivas.', this)">Que me ayude a pensar nuevas perspectivas.</button>
                         <button class="poll-option-btn" onclick="submitPoll('Que me dé una respuesta clara y útil.', this)">Que me dé una respuesta clara y útil.</button>
@@ -505,15 +518,15 @@
                         <button class="poll-option-btn" onclick="submitPoll('Que acompañe el enfoque que le propongo.', this)">Que acompañe el enfoque que le propongo.</button>
                     </div>
                     <div id="pollFeedbackContainer" style="display: none;">
-                        <p class="poll-feedback">💾 <b>No hay respuestas correctas. Guardamos tu elección.</b> Volveremos sobre ella al final de la mesa de trabajo.</p>
+                        <p class="poll-feedback">💾 <b>No hay respuestas correctas. Guardaremos tu elección</b> y volveremos sobre ella al final de la exploración.</p>
                     </div>
                 </div>
-                <p style="margin-top: 20px;">En esta exploración vamos a poner a prueba algo bastante curioso: cuánto influye la forma en que presentamos una idea en la respuesta que obtenemos.</p>
+                <p style="margin-top: 20px;">En este caso de exploración vamos a poner a prueba algo bastante curioso: cuánto influye la forma en que presentamos una idea en la respuesta que obtenemos.</p>
             </div>
 
             <!-- Paso 3: Experimento -->
             <div class="paso">
-                <h2>Experimento</h2>
+                <h2>Vamos a experimentar</h2>
                 <p><strong>Experimento 1: Dos certezas opuestas.</strong></p>
                 <p><em>Copiá este prompt y pegalo en el asistente de IA que uses (Gemini, ChatGPT, otro):</em></p>
                 <div class="prompt-box">
@@ -641,6 +654,9 @@
 
         <!-- CONTENEDOR CASO 2 (MANTENIDO EXACTAMENTE IGUAL A TU ÚLTIMA VERSIÓN) -->
         <div id="caso2Container" class="contenedor-caso">
+            <div class="top-bar">
+        <button class="home-btn" onclick="volverAlMenu()">🏠 Volver al Menú</button>
+    </div>
             <div class="progress-bar-container" id="progressBar2">
                 <div class="progress-segment" title="Título"></div>
                 <div class="progress-segment" title="Introducción"></div>
@@ -653,7 +669,7 @@
 
             <div class="paso">
                 <div class="lab-cover">
-                    <div class="cover-badge">LAB <b>ia</b></div>
+                    <div class="cover-badge">CASO DE EXPLORACIÓN</div>
                     <h1 class="cover-title">"Lo que le decís define lo que recibís"</h1>
                     <p style="color: var(--naranja); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
                         ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
@@ -781,7 +797,7 @@
         <!-- CONTROLES DE NAVEGACIÓN GLOBAL -->
         <div id="navigationControls" class="navigation-controls" style="display: none;">
             <button id="prevBtn" class="nav-btn">&larr; Anterior</button>
-            <button class="home-btn" onclick="volverAlMenu()">🏠 Volver al Menú</button>
+            
             <span id="stepIndicator">Paso 1 de 7</span>
             <button id="nextBtn" class="nav-btn">Siguiente &rarr;</button>
         </div>
@@ -870,30 +886,60 @@
         });
 
         function copyPrompt(button) {
-            const promptText = button.parentElement.querySelector('.prompt-text').innerText;
-            navigator.clipboard.writeText(promptText).then(() => {
-                const originalText = button.innerHTML;
-                button.innerText = "¡Copiado!";
-                button.style.background = "var(--verde)";
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.style.background = "var(--azul-oscuro)";
-                }, 2000);
-            });
-        }
+    const promptText = button.parentElement.querySelector('.prompt-text').innerText;
+    ejecutarCopia(promptText, button);
+}
 
-        function copyTextBlock(button) {
-            const blockText = button.parentElement.querySelector('.block-to-copy').innerText;
-            navigator.clipboard.writeText(blockText).then(() => {
-                const originalText = button.innerHTML;
-                button.innerText = "¡Copiado!";
-                button.style.background = "var(--verde)";
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.style.background = "var(--azul-oscuro)";
-                }, 2000);
-            });
+function copyTextBlock(button) {
+    const blockText = button.parentElement.querySelector('.block-to-copy').innerText;
+    ejecutarCopia(blockText, button);
+}
+
+// Función universal a prueba de bloques de WordPress e Iframes
+function ejecutarCopia(texto, boton) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(texto).then(() => {
+            mostrarExitoBoton(boton);
+        }).catch(() => {
+            fallbackCopiar(texto, boton);
+        });
+    } else {
+        fallbackCopiar(texto, boton);
+    }
+}
+
+function fallbackCopiar(texto, boton) {
+    const textArea = document.createElement("textarea");
+    textArea.value = texto;
+    // Se posiciona fuera de vista para no romper la pantalla
+    textArea.style.position = "fixed";
+    textArea.style.top = "0";
+    textArea.style.left = "-9999px";
+    
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+        const exitoso = document.execCommand('copy');
+        if (exitoso) {
+            mostrarExitoBoton(boton);
         }
+    } catch (err) {
+        console.error('Error al copiar:', err);
+    }
+    document.body.removeChild(textArea);
+}
+
+function mostrarExitoBoton(button) {
+    const originalText = button.innerHTML;
+    button.innerText = "¡Copiado!";
+    button.style.background = "var(--verde)";
+    setTimeout(() => {
+        button.innerHTML = originalText;
+        button.style.background = "var(--azul-oscuro)";
+    }, 2000);
+}
 
         // LÓGICA DE CAPTURA DE ENCUESTA INTERACTIVA
         function submitPoll(option, selectedButton) {
