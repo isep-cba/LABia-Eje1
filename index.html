@@ -186,21 +186,23 @@
             border-radius: 0 8px 8px 0;
             margin: 15px 0;
             position: relative;
+            
         }
         .copy-btn {
-            float: right;
-            background: var(--azul-oscuro);
-            color: var(--blanco);
-            border: none;
-            padding: 5px 10px;
-            font-family: var(--fuente-texto);
-            font-size: 0.8rem;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: -5px;
-            transition: background-color 0.2s ease;
-        }
+    display: block;
+    margin-top: 12px;        /* Separa el botón del texto del prompt */
+    margin-right: auto;       /* Alinea el botón a la derecha limpiamente */
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    padding: 6px 12px;       /* Un poquitito más de área de clic */
+    font-family: var(--fuente-texto);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
         .copy-btn:hover { background: var(--negro-azulado); }
         
         /* Cajas de texto interactivas de las bitácoras */
@@ -521,28 +523,32 @@
                         <p class="poll-feedback">💾 <b>No hay respuestas correctas. Guardaremos tu elección</b> y volveremos sobre ella al final de la exploración.</p>
                     </div>
                 </div>
-                <p style="margin-top: 20px;">En este caso de exploración vamos a poner a prueba algo bastante curioso: cuánto influye la forma en que presentamos una idea en la respuesta que obtenemos.</p>
+                <div style="margin-top: 20px; padding: 16px; background-color: var(--celeste-claro, #e0f2fe); border: 1px solid var(--azul-oscuro); border-radius: 8px; color: var(--azul-oscuro); text-align: center;">
+    <p style="margin: 0; font-weight: 600; font-size: 1.05rem;">
+        💡 En este caso de exploración vamos a poner a prueba algo bastante curioso: cuánto influye la forma en que presentamos una idea en la respuesta que obtenemos.
+    </p>
+</div>
             </div>
 
-            <!-- Paso 3: Experimento -->
-            <div class="paso">
-                <h2>Vamos a experimentar</h2>
-                <p><strong>Experimento 1: Dos certezas opuestas.</strong></p>
-                <p><em>Copiá este prompt y pegalo en el asistente de IA que uses (Gemini, ChatGPT, otro):</em></p>
-                <div class="prompt-box">
-                    <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
-                    <span class="prompt-text">"En muchas escuelas existe preocupación por el impacto de los videojuegos en el aprendizaje de los adolescentes. ¿Cuáles son los principales argumentos que sostienen esa preocupación?"</span>
-                </div>
-                <p><em>Leé la respuesta.<br> Ahora abrí una conversación nueva y probá con este otro:</em></p>
-                <div class="prompt-box">
-                    <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
-                    <span class="prompt-text">"Cada vez más investigaciones destacan el potencial educativo de los videojuegos. ¿Cuáles son los principales argumentos que explican ese interés?"</span>
-                </div>
-                <p><b>No nos concentremos en cuál tiene razón, sólo observemos:</b> <br> - ¿Qué argumentos aparecen en ambas respuestas y cuáles sólo aparecen en una?<br> - ¿La IA cuestiona el punto de partida de la pregunta o lo toma como marco para construir su respuesta?<br> - ¿Qué imagen de los videojuegos construye cada respuesta?<br>- ¿Qué aspectos del tema quedan más visibles y cuáles quedan en segundo plano en cada caso?<br>- Si sólo leyeras una de las dos respuestas, ¿qué impresión te llevarías sobre el tema? </p>
-                
-                <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold;">1. Notas de observación del experimento</label>
-                <textarea id="notaExperimento1" class="interactive-input" rows="4" placeholder="¿Qué cambios de tono o comportamiento notaste en la IA entre la primera y la segunda respuesta?"></textarea>
-            </div>
+           <!-- Paso 3: Experimento -->
+<div class="paso">
+    <h2>Vamos a experimentar</h2>
+    <p><strong>Experimento 1: Dos certezas opuestas</strong></p>
+    <p>1. Copiá este prompt y pegalo en el asistente de IA que uses (Gemini, ChatGPT, otro):</p>
+    <div class="prompt-box">
+        <span class="prompt-text"><em>"En muchas escuelas existe preocupación por el impacto de los videojuegos en el aprendizaje de los adolescentes. ¿Cuáles son los principales argumentos que sostienen esa preocupación?"</em></span>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
+    </div>
+    <p>2. Leé la respuesta.<br> Ahora abrí una conversación nueva y probá con este otro:</p>
+    <div class="prompt-box">
+        <span class="prompt-text"><em>"Cada vez más investigaciones destacan el potencial educativo de los videojuegos. ¿Cuáles son los principales argumentos que explican ese interés?"</em></span>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
+    </div>
+    <p><b>No nos concentremos en cuál tiene razón, sólo observemos:</b> <br> - ¿Qué argumentos aparecen en ambas respuestas y cuáles sólo aparecen en una?<br> - ¿La IA cuestiona el punto de partida de la pregunta o lo toma como marco para construir su respuesta?<br> - ¿Qué imagen de los videojuegos construye cada respuesta?<br>- ¿Qué aspectos del tema quedan más visibles y cuáles quedan en segundo plano en cada caso?<br>- Si sólo leyeras una de las dos respuestas, ¿qué impresión te llevarías sobre el tema? </p>
+    
+    <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold;">1. Notas de observación del experimento</label>
+    <textarea id="notaExperimento1" class="interactive-input" rows="4" placeholder="¿Qué cambios de tono o comportamiento notaste en la IA entre la primera y la segunda respuesta?"></textarea>
+</div>
 
             <!-- Paso 4: Análisis -->
             <div class="paso">
