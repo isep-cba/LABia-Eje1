@@ -170,6 +170,7 @@ li:last-child {
         font-size: 1.6rem;
     }
 }
+
 /* --- Sistema de Navegación por Tarjetas (Nuevos Estilos) --- */
 
 /* Oculta los pasos por defecto */
@@ -224,6 +225,7 @@ li:last-child {
     font-weight: 600;
     color: var(--text-muted);
 }
+
 /* --- Estilos de la Encuesta Inicial --- */
 .poll-box {
     background: #f8fafc;
@@ -232,12 +234,14 @@ li:last-child {
     padding: 20px;
     margin: 20px 0;
 }
+
 .poll-question {
     font-weight: 700;
     color: #0f172a;
     font-size: 1.05rem;
     margin-bottom: 15px;
 }
+
 .poll-option-btn {
     display: block;
     width: 100%;
@@ -253,15 +257,18 @@ li:last-child {
     cursor: pointer;
     transition: all 0.2s ease;
 }
+
 .poll-option-btn:hover {
     border-color: #6366f1;
     background: #f5f3ff;
     color: #4f46e5;
 }
+
 /* Barras de resultados */
 .result-bar-container {
     margin-bottom: 15px;
 }
+
 .result-labels {
     display: flex;
     justify-content: space-between;
@@ -270,25 +277,92 @@ li:last-child {
     color: #475569;
     margin-bottom: 5px;
 }
+
 .result-bar {
     background: #e2e8f0;
     height: 12px;
     border-radius: 6px;
     overflow: hidden;
 }
+
 .result-fill {
     background: #6366f1;
     height: 100%;
     border-radius: 6px;
     transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); /* Animación suave de carga */
 }
+
 .result-fill.accent {
     background: #f59e0b; /* Color de acento para la respuesta mayoritaria */
 }
+
 .poll-feedback {
     font-size: 0.85rem;
     color: #64748b;
     font-style: italic;
     margin-top: 15px;
     text-align: center;
+}
+
+/* --- Estilos para el Damero de Preguntas (Corregido y Forzado) --- */
+div.damero-preguntas {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 15px !important;
+    margin: 20px 0 25px 0 !important;
+    width: 100% !important;
+}
+
+div.tarjeta-damero {
+    padding: 18px 20px !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transition: transform 0.2s ease !important;
+    box-sizing: border-box !important;
+}
+
+div.tarjeta-damero:hover {
+    transform: translateY(-2px) !important;
+}
+
+div.tarjeta-damero p {
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.45 !important;
+    font-weight: 500 !important;
+    color: var(--text) !important;
+}
+
+span.numero-damero {
+    font-size: 0.8rem !important;
+    font-weight: 800 !important;
+    opacity: 0.7 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+    color: var(--primary-dark) !important;
+}
+
+/* Tarjetas Pares (Fondo Blanco con borde azul) */
+div.tarjeta-damero.par {
+    background-color: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-left: 5px solid var(--primary) !important;
+}
+
+/* Tarjetas Impares (Fondo Gris Suave con borde verde) */
+div.tarjeta-damero.impar {
+    background-color: #f1f5f9 !important;
+    border: 1px solid var(--border-color) !important;
+    border-left: 5px solid #10b981 !important;
+}
+
+/* Tarjeta 5 (Acepta tanto la versión con o sin tipeo) */
+div.tarjeta-damero.destancada-full,
+div.tarjeta-damero.destacada-full {
+    grid-column: 1 / -1 !important;
+    background-color: #e0e7ff !important;
+    border: 1px solid #c7d2fe !important;
+    border-left: 5px solid var(--primary) !important;
 }

@@ -544,7 +544,34 @@
         <span class="prompt-text"><em><b>"Cada vez más investigaciones destacan el potencial educativo de los videojuegos. ¿Cuáles son los principales argumentos que explican ese interés?"</b></em></span>
         <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
     </div>
-    <p><b>No nos concentremos en cuál tiene razón, sólo observemos:</b> <br> - ¿Qué cambios de tono o comportamiento notaste en la IA entre la primera y las segunda respuesta?<br> - ¿La IA cuestiona el punto de partida de la pregunta o lo toma como marco para construir su respuesta?<br> - ¿Qué imagen de los videojuegos construye cada respuesta?<br>- ¿Qué aspectos del tema quedan más visibles y cuáles quedan en segundo plano en cada caso?<br>- Si sólo leyeras una de las dos respuestas, ¿qué impresión te llevarías sobre el tema? </p>
+    <p style="margin-top: 20px; font-weight: bold; color: var(--azul-oscuro);">
+    No nos concentremos en cuál tiene razón, sólo observemos:
+</p>
+
+<!-- Contenedor Damero -->
+<div class="damero-preguntas">
+    <div class="tarjeta-damero par">
+        <span class="numero-damero">01</span>
+        <p>¿Qué cambios de tono o comportamiento notaste en la IA entre la primera y la segunda respuesta?</p>
+    </div>
+    <div class="tarjeta-damero impar">
+        <span class="numero-damero">02</span>
+        <p>¿La IA cuestiona el punto de partida de la pregunta o lo toma como marco para construir su respuesta?</p>
+    </div>
+    <div class="tarjeta-damero impar">
+        <span class="numero-damero">03</span>
+        <p>¿Qué imagen de los videojuegos construye cada respuesta?</p>
+    </div>
+    <div class="tarjeta-damero par">
+        <span class="numero-damero">04</span>
+        <p>¿Qué aspectos del tema quedan más visibles y cuáles quedan en segundo plano en cada caso?</p>
+    </div>
+    <!-- Quinta pregunta ocupando todo el ancho inferior para cerrar prolijo -->
+    <div class="tarjeta-damero destancada-full">
+        <span class="numero-damero">05</span>
+        <p>Si sólo leyeras una de las dos respuestas, ¿qué impresión te llevarías sobre el tema?</p>
+    </div>
+</div>
     
     <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold;">Notas de observación del experimento</label>
     <textarea id="notaExperimento1" class="interactive-input" rows="4" placeholder="Escribí tus notas acá..."></textarea>
