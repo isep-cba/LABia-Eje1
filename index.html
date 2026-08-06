@@ -48,7 +48,7 @@
         <!-- CONTENEDOR CASO 1 -->
         <div id="caso1Container" class="contenedor-caso">
             <div class="top-bar">
-        <button class="home-btn" onclick="volverAlMenu()">🏠 Volver al Menú</button>
+        <button class="home-btn" onclick="volverAlMenu()">Volver al Menú</button>
     </div>
             <div class="progress-bar-container" id="progressBar1">
                 <div class="progress-segment" title="Carátula"></div>
@@ -66,13 +66,10 @@
                 <div class="lab-cover">
                     <div class="cover-badge">CASO DE EXPLORACIÓN</div>
                     <h1 class="cover-title">¿Por qué la IA siempre me da la razón?</h1>
-                    <p style="color: var(--naranja); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                    <p style="color: var(--azul-oscuro); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
                         ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
                     </p>
-                    <div class="cover-decor">
-                        <span class="decor-dot"></span>
-                        <span class="decor-line"></span>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -90,12 +87,12 @@
                         <button class="poll-option-btn" onclick="submitPoll('Que acompañe el enfoque que le propongo.', this)">Que acompañe el enfoque que le propongo.</button>
                     </div>
                     <div id="pollFeedbackContainer" style="display: none;">
-                        <p class="poll-feedback">💾 <b>No hay respuestas correctas. Guardaremos tu elección</b> y volveremos sobre ella al final de la exploración.</p>
+                        <p class="poll-feedback"><b>No hay respuestas correctas. Guardaremos tu elección</b> y volveremos sobre ella al final de la exploración.</p>
                     </div>
                 </div>
-                <div style="margin-top: 20px; padding: 16px; background-color: var(--celeste-claro, #e0f2fe); border: 1px solid var(--azul-oscuro); border-radius: 8px; color: var(--azul-oscuro); text-align: center;">
-    <p style="margin: 0; font-weight: 600; font-size: 1.05rem;">
-        💡 En este caso de exploración vamos a poner a prueba algo bastante curioso: cuánto influye la forma en que presentamos una idea en la respuesta que obtenemos.
+                <div style="margin-top: 20px; padding: 16px; background-color: var(--celeste-claro, #e0f2fe); border: 0px solid var(--azul-oscuro); border-radius: 16px; color: var(--azul-oscuro); text-align: center;">
+    <p style="margin: 0; font-weight: 500; font-size: 1.05rem;">
+        En este caso de exploración vamos a poner a prueba algo bastante curioso: cuánto influye la forma en que presentamos una idea en la respuesta que obtenemos.
     </p>
 </div>
             </div>
@@ -134,13 +131,9 @@
     </div>
     <div class="tarjeta-damero par">
         <span class="numero-damero">04</span>
-        <p>¿Qué aspectos del tema quedan más visibles y cuáles quedan en segundo plano en cada caso?</p>
-    </div>
-    <!-- Quinta pregunta ocupando todo el ancho inferior para cerrar prolijo -->
-    <div class="tarjeta-damero destacada-full">
-        <span class="numero-damero">05</span>
         <p>Si sólo leyeras una de las dos respuestas, ¿qué impresión te llevarías sobre el tema?</p>
     </div>
+    
 </div>
     
     <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold;">Notas de observación del experimento</label>
@@ -154,8 +147,13 @@
                 <p>¿Por qué ocurre esto? La respuesta corta es que no existe una única explicación. Los modelos de lenguaje no "piensan" las ideas como lo haría una persona. Su funcionamiento consiste en identificar patrones en enormes cantidades de textos y generar respuestas que resulten coherentes con la conversación que están manteniendo. Eso ya produce un primer efecto: la IA suele tomar como punto de partida aquello que le presentamos. Si formulamos una afirmación con mucha seguridad, es probable que intente desarrollarla antes que cuestionarla.</p>
                 <p>Pero además hay otro aspecto importante. Durante su entrenamiento, estos modelos no sólo aprenden lenguaje. También son ajustados para producir respuestas que las personas consideran útiles, claras y satisfactorias. Para ello intervienen evaluadores humanos que comparan distintas respuestas y señalan cuáles resultan más valiosas en una conversación. Uno de los procesos utilizados para realizar ese ajuste se conoce como RLHF (<em>Reinforcement Learning from Human Feedback</em>, o aprendizaje por refuerzo a partir de retroalimentación humana).</p>
                 <p style="line-height: 1.6;">
-    Como consecuencia, algunos modelos pueden desarrollar una tendencia a acompañar las afirmaciones, expectativas o marcos propuestos por quien pregunta, especialmente cuando no encuentran motivos claros para cuestionarlos. A este comportamiento se lo conoce como<mark style="background-color: rgba(254, 240, 138, 0.45); color: inherit; padding: 2px 6px; border-radius: 4px; font-style: normal;"><b>"sicofancia": la tendencia de un modelo a validar o reforzar lo que el usuario propone, incluso cuando sería razonable introducir más dudas, matices o perspectivas alternativas.</b></mark>
+    Como consecuencia, algunos modelos pueden desarrollar una tendencia a acompañar las afirmaciones, expectativas o marcos propuestos por quien pregunta, especialmente cuando no encuentran motivos claros para cuestionarlos.
 </p>
+
+<!-- Bloque de definición destacado -->
+<aside style="background: #f8fafc; border-left: 3px solid var(--celeste); padding: 12px 16px; border-radius: 0 12px 12px 0; margin: 16px 0; color: var(--negro-azulado);">
+    <strong style="color: var(--azul-oscuro);">Sicofancia:</strong> la tendencia de un modelo a validar o reforzar lo que el usuario propone, incluso cuando sería razonable introducir más dudas, matices o perspectivas alternativas.
+</aside>
                 <p>No se trata de una falta de inteligencia. Tampoco de una intención deliberada de engañar. Es, más bien, el resultado de múltiples decisiones de diseño orientadas a que la conversación resulte útil, fluida y satisfactoria para las personas. Y justamente por eso vale la pena observarlo.</p>
                 
                 <div class="rlhf-container">
@@ -179,7 +177,10 @@
                     </p>
                 </div>
 
-                <p>Tal vez la cuestión más importante no sea cuál de esas opciones es la correcta, sino comprender qué tipo de interlocutor tenemos delante y qué lugar queremos que ocupe en nuestros procesos de pensamiento.<br>La exploración que acabamos de realizar muestra algo importante: <mark style="background-color: rgba(254, 240, 138, 0.45); color: inherit; padding: 2px 6px; border-radius: 4px; font-style: normal;">una IA no es un juez imparcial que analiza nuestras ideas desde afuera. Tampoco un especialista que evalúa críticamente cada afirmación que hacemos. Con frecuencia, tenderá a tomar como punto de partida el marco que le proponemos y a desarrollar una respuesta a partir de él.</mark>Comprender esto nos permite construir algunos criterios para interactuar con estas herramientas.</p>
+                <p style="line-height: 1.6;">
+    Tal vez la cuestión más importante no sea cuál de esas opciones es la correcta, sino comprender qué tipo de interlocutor tenemos delante y qué lugar queremos que ocupe en nuestros procesos de pensamiento.<br>
+    La exploración que acabamos de realizar muestra algo importante: <strong style="color: var(--azul-oscuro); font-weight: 600;">una IA no es un juez imparcial que analiza nuestras ideas desde afuera. Tampoco un especialista que evalúa críticamente cada afirmación que hacemos. Con frecuencia, tenderá a tomar como punto de partida el marco que le proponemos y a desarrollar una respuesta a partir de él.</strong> Comprender esto nos permite construir algunos criterios para interactuar con estas herramientas.
+</p>
                 <details>
                     <summary>La forma de preguntar también construye la respuesta</summary>
                     <p style="margin-top: 10px;">Cuando conversamos con una IA solemos prestar atención a las respuestas. Sin embargo, esta exploración nos muestra que también vale la pena mirar las preguntas.<br>Una afirmación formulada con mucha seguridad puede orientar la conversación en una dirección determinada. Una pregunta cerrada suele producir respuestas cerradas. En cambio, una pregunta que invita a explorar alternativas, comparar perspectivas o identificar limitaciones suele abrir respuestas más diversas y matizadas.</p>
@@ -270,7 +271,7 @@
                 <textarea id="notaAula1" class="interactive-input" rows="4" placeholder="Escribí tu plan/ideas acá..."></textarea>
 
                 <button class="download-btn" onclick="descargarBitacora(1)">
-                    <span>📥</span> Descargar mis notas del Caso 1
+                    <span></span> Descargar mis notas del Caso 1
                 </button>
             </div>
         </div>
@@ -279,7 +280,7 @@
         <!-- CONTENEDOR CASO 2 (MANTENIDO EXACTAMENTE IGUAL A TU ÚLTIMA VERSIÓN) -->
         <div id="caso2Container" class="contenedor-caso">
             <div class="top-bar">
-        <button class="home-btn" onclick="volverAlMenu()">🏠 Volver al Menú</button>
+        <button class="home-btn" onclick="volverAlMenu()">Volver al Menú</button>
     </div>
             <div class="progress-bar-container" id="progressBar2">
                 <div class="progress-segment" title="Título"></div>
@@ -295,13 +296,10 @@
                 <div class="lab-cover">
                     <div class="cover-badge">CASO DE EXPLORACIÓN</div>
                     <h1 class="cover-title">"Lo que le decís define lo que recibís"</h1>
-                    <p style="color: var(--naranja); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                    <p style="color: var(--azul-oscuro); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
                         ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
                     </p>
-                    <div class="cover-decor">
-                        <span class="decor-dot"></span>
-                        <span class="decor-line"></span>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -412,7 +410,7 @@
                 <textarea id="notaAula2" class="interactive-input" rows="4" placeholder="¿De qué manera o en qué espacios compartidos (clases, talleres, grupos de estudio o reuniones de equipo) aplicarías una dinámica similar para entrenar la comunicación efectiva y el criterio frente a la IA?"></textarea>
 
                 <button class="download-btn" onclick="descargarBitacora(2)">
-                    <span>📥</span> Descargar mis notas del Caso 2
+                    <span></span> Descargar mis notas del Caso 2
                 </button>
             </div>
         </div>

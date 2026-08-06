@@ -218,37 +218,42 @@ ul li::marker { color: var(--moradito); }
 /* ==========================================
    BLOQUES DE PROMPTS Y CONSOLA DE IA
    ========================================== */
+/* 1. Caja de Prompt con la tipografía original y diseño moderno sin barra lateral */
 .prompt-box {
-    background-color: rgba(21, 28, 50, 0.04);
-    border-left: 4px solid var(--celeste);
-    padding: 15px;
-    border-radius: 0 8px 8px 0;
-    margin: 15px 0;
-    position: relative;
+    background-color: #f8fafc;
+    border: 1px solid rgba(104, 104, 104, 0.18);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin: 20px 0;
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.95rem;                           /* Restaurado a la tipografía original */
+    line-height: 1.5;                              /* Restaurado al interlineado original */
     word-break: break-word;
 }
 
+/* 2. Botón de copiar forzado debajo del texto, alineado a la izquierda */
 .copy-btn {
-    display: block;
-    margin-top: 12px;
-    margin-right: auto;
-    background: var(--azul-oscuro);
-    color: var(--blanco);
-    border: none;
-    padding: 6px 12px;
+    display: block;                                /* Forzado a bloque para ir debajo */
+    margin-top: 14px;                              /* Separación respecto al texto */
+    margin-right: auto;                           /* Alineado a la izquierda */
+    background: var(--blanco);
+    color: var(--gris-68);
+    border: 1px solid rgba(104, 104, 104, 0.25);
+    padding: 6px 14px;
     font-family: var(--fuente-texto);
     font-size: 0.8rem;
     font-weight: 600;
-    border-radius: 4px;
+    border-radius: 20px;                         /* Esquinas estilo píldora moderna */
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .copy-btn:hover {
-    background: var(--negro-azulado);
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    border-color: var(--azul-oscuro);
+    transform: translateY(-1px);
 }
 
 .code-block {
@@ -265,25 +270,29 @@ ul li::marker { color: var(--moradito); }
 /* ==========================================
    COMPONENTES INTERACTIVOS
    ========================================== */
+/* 1. Campo de texto redondeado y con bordes suaves */
 .interactive-input {
     width: 100%;
-    padding: 12px;
+    padding: 14px 16px;
     margin: 12px 0 20px 0;
-    border: 1px solid var(--gris-68);
-    border-radius: 8px;
+    border: 1px solid rgba(104, 104, 104, 0.22); /* Borde translúcido suave */
+    border-radius: 14px;                         /* Esquinas con curva moderna */
     font-family: var(--fuente-texto);
     font-size: 0.95rem;
+    color: var(--negro-111);
     resize: vertical;
-    background-color: rgba(104, 104, 104, 0.03);
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
 }
 
 .interactive-input:focus {
     outline: none;
     border-color: var(--celeste);
     background-color: var(--blanco);
+    box-shadow: 0 0 0 3px rgba(28, 153, 215, 0.15); /* Anillo suave celeste al enfocar */
 }
 
+/* 2. Botón principal redondeado y con microinteracciones */
 .download-btn {
     display: flex;
     align-items: center;
@@ -293,18 +302,25 @@ ul li::marker { color: var(--moradito); }
     background-color: var(--azul-oscuro);
     color: var(--blanco);
     border: none;
-    padding: 14px;
+    padding: 14px 20px;
     font-family: var(--fuente-texto);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    border-radius: 8px;
+    border-radius: 20px;                         /* Estilo redondeado/píldora */
     cursor: pointer;
     margin-top: 25px;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(15, 67, 121, 0.12); /* Sombra tenue que le da volumen */
 }
 
 .download-btn:hover {
     background-color: var(--negro-azulado);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(15, 67, 121, 0.2);
+}
+
+.download-btn:active {
+    transform: translateY(0);
 }
 
 /* ==========================================
@@ -445,20 +461,22 @@ summary:hover {
 
 .home-btn {
     background: var(--blanco);
-    color: var(--gris-68);
-    border: 1px solid var(--gris-68);
-    padding: 10px 14px;
-    border-radius: 6px;
+    color: var(--celeste);                 /* Cambiado a celeste */
+    border: 1px solid var(--celeste);       /* Borde cambiado a celeste */
+    padding: 10px 18px;                    /* Ligero ajuste para acompañar la forma redondeada */
+    border-radius: 20px;                   /* Incrementado para un estilo "píldora" / más redondeado */
     font-family: var(--fuente-texto);
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
+/* Opcional: efecto al pasar el mouse para mantener buena interacción */
 .home-btn:hover {
-    background: rgba(104, 104, 104, 0.05);
-    color: var(--negro-111);
+    background: rgba(28, 153, 215, 0.1);   /* Fondo celeste muy suave al hacer hover */
+    color: var(--azul-oscuro);
+    border-color: var(--azul-oscuro);
 }
 
 #stepIndicator {
@@ -470,11 +488,11 @@ summary:hover {
 /* ==========================================
    ENCUESTAS E INTERACCIONES DE USUARIO
    ========================================== */
+/* 1. Contenedor principal: sin fondo, sin borde y sin relleno extra */
 .poll-box {
-    background: rgba(28, 153, 215, 0.05);
-    border: 1px solid var(--celeste);
-    padding: 20px;
-    border-radius: 8px;
+    background: transparent;
+    border: none;
+    padding: 0;
     margin: 20px 0;
 }
 
@@ -484,13 +502,14 @@ summary:hover {
     color: var(--negro-azulado);
 }
 
+/* 2. Botones de opciones: más redondeados y con borde de menor contraste */
 .poll-option-btn {
     display: block;
     width: 100%;
     background: var(--blanco);
-    border: 1px solid var(--celeste);
-    padding: 12px;
-    border-radius: 6px;
+    border: 1px solid rgba(104, 104, 104, 0.25); /* Borde suave de menor contraste */
+    padding: 12px 16px;
+    border-radius: 16px;                         /* Esquinas más redondeadas */
     text-align: left;
     margin-bottom: 10px;
     font-family: var(--fuente-texto);
@@ -499,24 +518,28 @@ summary:hover {
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
+/* Hover con borde sutil */
 .poll-option-btn:hover {
-    background: rgba(28, 153, 215, 0.1);
+    background: rgba(28, 153, 215, 0.05);
+    border-color: var(--celeste);
 }
 
+/* Opción seleccionada conservando el estilo curvo */
 .poll-option-btn.selected {
-    background: rgba(28, 153, 215, 0.15);
+    background: rgba(28, 153, 215, 0.12);
     border-color: var(--azul-oscuro);
     font-weight: 600;
 }
 
+/* Feedback con esquinas redondeadas para mantener la línea de diseño */
 .poll-feedback {
     font-size: 0.85rem;
     color: var(--gris-68);
-    margin-top: 10px;
+    margin-top: 12px;
     background: rgba(50, 164, 48, 0.08);
-    padding: 10px;
-    border-radius: 4px;
-    border-left: 3px solid var(--verde-ingles);
+    padding: 12px;
+    border-radius: 12px;
+    border-left: 4px solid var(--verde-ingles);
 }
 
 /* Resultados dinámicos de encuestas */
