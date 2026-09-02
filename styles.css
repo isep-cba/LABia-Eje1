@@ -385,6 +385,8 @@ summary:hover {
     display: block;
     margin: 0 auto 15px auto;
     border-radius: 6px;
+
+    clip-path: inset(0 15% 0 15%);
 }
 
 .rlhf-text {
