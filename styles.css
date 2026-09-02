@@ -379,14 +379,27 @@ summary:hover {
     text-align: center;
 }
 
+/* Máscara que ajusta el ancho al contenedor y oculta los bordes de la imagen */
+.rlhf-crop-wrapper {
+    /* AJUSTA ESTE VALOR: prueba con 90%, 85% u 80% según el tamaño que prefieras */
+    width: 85%; 
+    
+    /* Centra la caja dentro de la tarjeta gris */
+    margin: 0 auto 15px auto; 
+
+    overflow: hidden;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+}
+
 .rlhf-img {
-    max-width: 100%;
+    /* Al escalar a 142.85%, la imagen se agranda para recortar 15% de cada lado */
+    width: 142.85%;
+    max-width: none;
     height: auto;
     display: block;
-    margin: 0 auto 15px auto;
-    border-radius: 6px;
-
-    clip-path: inset(0 15% 0 15%);
+    flex-shrink: 0;
 }
 
 .rlhf-text {
