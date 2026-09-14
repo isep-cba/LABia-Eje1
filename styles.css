@@ -377,29 +377,23 @@ summary:hover {
     border-radius: 8px;
     margin: 20px 0;
     text-align: center;
+    
+    /* 1. Garantiza que NADA pueda salirse de la caja gris */
+    overflow: hidden; 
+    box-sizing: border-box;
 }
 
-/* Máscara que ajusta el ancho al contenedor y oculta los bordes de la imagen */
 .rlhf-crop-wrapper {
-    /* AJUSTA ESTE VALOR: prueba con 90%, 85% u 80% según el tamaño que prefieras */
-    width: 65%; 
-    
-    /* Centra la caja dentro de la tarjeta gris */
-    margin: 0 auto 15px auto; 
-
-    overflow: hidden;
+    width: 50%; /* Cambia este valor para hacerla más grande o más pequeña en pantalla */
+    margin: 0 auto 15px auto;
     border-radius: 6px;
-    display: flex;
-    justify-content: center;
 }
 
 .rlhf-img {
-    /* Al escalar a 142.85%, la imagen se agranda para recortar 15% de cada lado */
-    width: 142.85%;
-    max-width: none;
+    width: 100%; /* Muestra el 100% de la imagen completa sin recortar nada */
     height: auto;
     display: block;
-    flex-shrink: 0;
+    border-radius: 6px;
 }
 
 .rlhf-text {
