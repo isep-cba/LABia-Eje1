@@ -288,6 +288,7 @@
                 <div class="progress-segment" title="Experimento"></div>
                 <div class="progress-segment" title="Análisis"></div>
                 <div class="progress-segment" title="Criterio"></div>
+                <div class="progress-segment" title="Preguntas"></div>
                 <div class="progress-segment" title="Debate"></div>
                 <div class="progress-segment" title="Comunidad"></div>
             </div>
@@ -342,8 +343,7 @@
 <p style="margin-left: 20px;">• ¿Qué información parece haber sido importante para la respuesta que produjo el modelo?</p>
 <p><b>No busques cuál es la "mejor" respuesta. Buscá las diferencias.</b></p>
 
-                <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold; display: block; margin-top: 20px;">Notas de observación del experimento:</label>
-                <textarea id="notaExperimento2" class="interactive-input" rows="4" placeholder="Escribí tus notas acá..."></textarea>
+                
             </div>
 
             <div class="paso">
@@ -368,32 +368,56 @@
                 <h2>Construyendo criterio</h2>
                 <p>Lo que vimos no significa que <b>cuanta más información demos, mejor será la respuesta</b>. El contexto puede modificar lo que produce un modelo, pero no toda la información resulta igualmente relevante.</p>
                 <p>Una consulta no es solamente una pregunta: también pone a disposición del modelo <b>las condiciones de la tarea</b>. El propósito, el destinatario, la situación, los límites o los criterios que consideramos importantes pueden orientar de maneras diferentes el texto que produzca.</p>
-                <p>Por eso, construir contexto no consiste en contarle todo. Consiste en <b>decidir qué información importa para una determinada tarea.</b></p>
+                <p>Por eso, construir contexto no consiste en contarle todo. Consiste en <b>decidir qué información importa para una determinada tarea</b>.</p>
+                <h3>Cuatro preguntas para construir contexto</h3>
+                <p><b>¿Qué tiene que hacer el modelo?</b> Definir con claridad la tarea que esperamos que resuelva.</p>
+                <p><b>¿Para qué situación?</b> Precisar el propósito, el destinatario o las condiciones que pueden modificar lo que necesitamos.</p>
+                <p><b>¿Qué información es relevante?</b> Distinguir aquello que puede incidir en la respuesta de lo que simplemente agrega datos.</p>
+                <p><b>¿Qué estoy dando por supuesto?</b> Hacer visible aquello que para nosotros resulta evidente, pero que no necesariamente forma parte del contexto disponible para el modelo.</p>
+                <p style="text-align: center;"><b>Construir contexto es una forma de tomar decisiones.</b></p>
+                </div>
+
+            <div class="paso">
+                <h2>Volvé sobre la exploración</h2>
+                <p>Mirá las tres consultas que probaste.</p>
+                <p><b>• ¿Qué información cambió realmente las respuestas?</b></p>
+                <p><b>• ¿Cuál podrías haber omitido sin que cambiara demasiado el resultado?</b></p>
+                <p><b>• ¿Qué supuestos aparecieron cuando esa información no estaba disponible?</b></p>
+                
+                <h3>Un paso más</h3>
+                <p>Probá ahora con una situación diferente. Antes de escribir la consulta, <b>no empieces por redactar</b>. Primero decidí:</p>
+                <p style="margin-left: 20px;"><b>¿Qué necesita estar disponible para que el modelo pueda producir una respuesta adecuada a esta situación?</b></p>
+                <p>Después escribí la consulta y observá qué ocurre.</p>
+                <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold; display: block; margin-top: 20px;">Notas de observación del experimento:</label>
+                <textarea id="notaExperimento2" class="interactive-input" rows="4" placeholder="Escribí tus notas acá..."></textarea>
                 </div>
                 
 
             <div class="paso">
                 <h2>IA y algo más</h2>
-                <p>Te proponemos utilizar este experimento técnico como una puerta de entrada para reflexionar sobre problemas más amplios, antiguos y profundamente humanos:</p>
+                <p>Hasta acá exploramos qué ocurre cuando modificamos el contexto que ponemos a disposición de un modelo de lenguaje. Pero hay algo más que podemos mirar en esa experiencia.</p>
                 
-                <p><strong>La apertura frente al control (¿Cuándo el exceso de precisión asfixia?):</strong> ¿Existen escenarios o tareas creativas donde un prompt vago y completamente abierto funcione mejor que uno extremadamente detallado? <br><em>Y algo más:</em> En las relaciones humanas, en los proyectos colectivos o en el diseño de una clase, ¿cuándo el exceso de consignas y el control rígido asfixian la sorpresa, la autonomía y la emergencia de lo nuevo? ¿Cuánto margen de incertidumbre nos permitimos tolerar al comunicarnos con los demás?</p>
+                <p>Cuando usamos una herramienta de este tipo para producir un texto, <b>no desaparece el trabajo intelectual: cambia de lugar.</b></p>
                 
-                <p style="margin-top: 15px;"><strong>La delegación de nuestra soberanía (El fin del esfuerzo explícito):</strong> ¿En qué punto el diseño manual de prompts dejará de ser una habilidad clave ante la llegada de interfaces de voz nativas o agentes autónomos que se "auto-prompteam"? <br><em>Y algo más:</em> Si delegamos en la tecnología la tarea de interpretar lo que necesitamos antes de que lo verbalicemos, ¿corremos el riesgo de perder la capacidad de saber qué queremos nosotros mismos? ¿Qué sucede con nuestra toma de decisiones y nuestro deseo cuando dejamos que un tercero —humano o máquina— asuma y complete lo que dejamos implícito?</p>
+                <p>Decidimos qué queremos producir, para quién, con qué propósito y qué información necesita estar disponible. Seleccionamos qué contar, qué dejar afuera, qué restricciones establecer y qué aspectos de una respuesta queremos conservar, modificar o descartar.</p>
                 
-                <p style="margin-top: 15px;"><strong>La memoria compartida y la identidad (Lo que el otro retiene de nosotros):</strong> Si tu interfaz favorita recuerda tus datos en su memoria activa, ¿sabés con exactitud qué sabe de vos? <br><em>Y algo más:</em> La convivencia humana se sostiene sobre el delicado equilibrio entre lo que elegimos recordar, lo que decidimos olvidar y lo que mantenemos en reserva. Cuando un entorno (físico o digital) lo archiva todo en silencio, ¿qué tensiones se abren respecto a nuestra privacidad, nuestra libertad para cambiar de opinión y el derecho humano a empezar de nuevo sin el peso del pasado?</p>
+                <p>Al mismo tiempo, <b>delegamos algunas operaciones</b>. El modelo puede proponer una formulación, organizar información, desarrollar una idea, encontrar relaciones entre elementos o producir alternativas que luego podemos revisar.</p>
+                <p>La cuestión, entonces, no es solamente <b>cuánto trabajo hace la herramienta</b>, <b>sino qué operaciones seguimos realizando nosotros, cuáles ponemos en sus manos y qué ocurre cuando dejamos de hacerlas.</b></p>
+                <h3>Y acá podemos salir de la IA</h3>
+                <p>Lo que esta exploración permite observar en una herramienta también puede abrir preguntas sobre nuestras propias formas de producir textos, tomar decisiones y construir conocimiento.</p>
+                <p>Lo que esta exploración permite observar en una herramienta también puede abrir preguntas sobre nuestras propias formas de producir textos, tomar decisiones y construir conocimiento.</p>
+                <p style="margin-left: 20px;"><b>• ¿Qué operaciones hacemos casi sin darnos cuenta cuando escribimos?</b></p>
+                <p style="margin-left: 20px;"><b>• ¿Qué cambia cuando una parte de esas operaciones queda a cargo de otra persona o de una herramienta?</b></p>
+                <p style="margin-left: 20px;"><b>• ¿Qué necesitamos seguir haciendo nosotros para poder evaluar, decidir y asumir la responsabilidad sobre el resultado?</b></p>
+                <p>La IA puede ser, en este sentido,<b> un punto de partida para mirar algo que ocurre también fuera de ella: cómo distribuimos el trabajo intelectual cuando producimos algo junto con otros.</b></p>
             </div>
 
             <div class="paso">
                 <h2>En el Aula</h2>
-                <p>Compartir y ensayar la interacción tecnológica en comunidad permite visibilizar los vacíos de interpretación que a veces nos pasan desapercibidos. Te sugerimos dos dinámicas grupales adaptables:</p>
-                
+                                
                 <details>
-                    <summary>Dinámica 1: El juego del mensaje (Talleres iniciales / Introducción)</summary>
+                    <summary>Dinámica: ¿Qué dejamos en manos de la herramienta? (Para jóvenes y adultos)</summary>
                     <p style="margin-top: 10px;">Un participante toma el rol de "robot" y debe realizar un dibujo o una acción en la pizarra siguiendo estrictamente las instrucciones escritas de otro compañero, quien no puede hablar ni gesticular. El "robot" debe ejecutar la orden de forma literal, sin asumir nada que no esté escrito. Si la instrucción carece de contexto explícito, el resultado se deforma con gracia. Es la analogía perfecta para entender la lógica de entrada (input) y salida (output) de un modelo de lenguaje.</p>
-                </details>
-                <details>
-                    <summary>Dinámica 2: Auditoría colectiva de consignas (Talleres avanzados / Educación Superior)</summary>
-                    <p style="margin-top: 10px;">Cada integrante trae a la mesa de trabajo un prompt real que haya utilizado durante la semana en sus tareas de estudio o trabajo. En equipos, analizan las solicitudes usando la plantilla <strong>CLEAR</strong>, las reescriben incorporando los campos de contexto o formato que faltaban y vuelven a ejecutar el experimento en sus dispositivos. El debate gira en torno a comparar el "antes" y el "después": ¿Qué cambió en la respuesta? ¿Qué dice esto sobre la calidad de nuestra demanda original?</p>
                 </details>
 
                 <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold; display: block; margin-top: 25px;">✏️ [Espacio de Bitácora 3 — Plan de acción]:</label>
