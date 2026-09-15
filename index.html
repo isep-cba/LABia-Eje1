@@ -36,8 +36,8 @@
     <div class="tarjeta-caso" onclick="iniciarCaso(2)">
         <div>
             <div class="tarjeta-badge">CASO DE EXPLORACIÓN 02</div>
-            <h2 class="tarjeta-titulo">Lo que le decís define lo que recibís</h2>
-            <p class="tarjeta-desc">El secreto de una buena respuesta está en la información que le damos a la herramienta. Acá vamos a poner a prueba cómo cambia el resultado cuando somos más específicos y claros en nuestros pedidos.</p>
+            <h2 class="tarjeta-titulo">¿Qué cambia cuando modificamos el contexto de una consulta?</h2>
+            <p class="tarjeta-desc">Vamos a explorar cómo la información disponible para un modelo de lenguaje puede incidir en las respuestas que produce.</p>
         </div>
         <button class="btn-iniciar">Iniciar &rarr;</button>
     </div>
@@ -295,7 +295,7 @@
             <div class="paso">
                 <div class="lab-cover">
                     <div class="cover-badge">CASO DE EXPLORACIÓN</div>
-                    <h1 class="cover-title">"Lo que le decís define lo que recibís"</h1>
+                    <h1 class="cover-title">¿Qué cambia cuando modificamos el contexto de una consulta?</h1>
                     <p style="color: var(--azul-oscuro); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
                         ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
                     </p>
@@ -304,40 +304,43 @@
             </div>
 
             <div class="paso">
-                <h1>Lo que le decís define lo que recibís</h1>
-                <p>Cuando trabajamos en equipo con nuestros compañeros el trabajo se hace más fácil porque todos compartimos un conocimiento común sobre nuestro entorno, nuestro estilo de trabajo, nuestras metas y limitaciones.</p>
-                <p>Sin embargo, un modelo de lenguaje no cuenta con nada de eso salvo que se lo proporcionemos dentro del mensaje. Esto influye en los resultados que obtengamos: cuanta mejor información específica sobre qué estamos buscamos de la IA le aportemos, mejores resultados obtendremos.</p>
-                <p>En esta exploración vamos a conocer cuánto influye la calidad de la información que ingresamos en un prompt en el resultado que la IA nos entrega.</p>
+                <h1>¿Qué cambia cuando modificamos el contexto de una consulta?</h1>
+                <p>Cuando trabajamos con otras personas, muchas veces no necesitamos explicar todo. Compartimos conocimientos sobre el contexto, los objetivos, las formas de trabajar y aquello que damos por supuesto.</p>
+                <p>Con un modelo de lenguaje, parte de ese contexto debe estar disponible en la interacción para que pueda incorporarlo a la respuesta. Por eso, cuando modificamos la información que le proporcionamos, también pueden cambiar las respuestas que produce.</p>
+                <p>En esta exploración vamos a ponerlo a prueba: ¿qué cambia cuando una misma consulta se presenta con distintos contextos?</p>
             </div>
 
             <div class="paso">
-                <h2>Experimento</h2>
-                <p>Para observar este fenómeno en acción, vamos a probar tres variantes de una misma solicitud en tu asistente de IA habitual.</p>
-                <p>Empecemos con una versión de prompt sin ninguna información contextual sobre quién sos y qué buscas específicamente. <em>Copiá este prompt y pegalo en tu asistente de IA habitual (Gemini, ChatGPT, otro):</em></p>
+                <h2>Pongamos a prueba el contexto</h2>
+                <p>Vamos a probar <b>una misma tarea con distintas versiones de una consulta.</b></p>
+                <p>Para que podamos comparar las respuestas, hacé <b>cada prueba en una conversación nueva</b>. De ese modo, el modelo no tendrá disponible lo que escribiste en las pruebas anteriores.</p><p>En cada conversación, cambiá solamente la información que aparece en la consulta.</p><p><b>No buscamos encontrar el mejor prompt</b>, sino observar qué cambia en las respuestas cuando cambia el contexto disponible.</p>
+                <p>Abrí una conversación nueva y escribí:</p>
                 
                 <div class="prompt-box">
-                    <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
-                    <span class="prompt-text">"Ayudame con una clase sobre fracciones."</span>
-                </div>
-                <p>Observá que resultado te arroja. ¿Te pidió que especifiques la tarea?</p>
+        <span class="prompt-text"><em><b>"Escribí un texto breve sobre una bicicleta."</b></em></span>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
+    </div>
+                <p>Leé la respuesta y prestá atención a qué aspectos aparecen y qué supone el modelo sobre aquello que necesitamos.</p>
                 
-                <p>Ahora probemos con una nueva versión, dándole un poco más de contexto sobre la tarea. Abrí una conversación nueva e ingresa el siguiente prompt:</p>
+                <p>Abrí <b>otra conversación nueva</b> y escribí:</p>
                 <div class="prompt-box">
-                    <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
-                    <span class="prompt-text">"Soy docente de 5to grado en una escuela primaria pública de Córdoba Capital, Argentina. Necesito una actividad de 40 minutos para introducir el concepto de fracciones. Los estudiantes ya saben sumar y restar números enteros. Quiero que la actividad sea concreta, con materiales que cualquier familia pueda tener en casa."</span>
-                </div>
-                <p>¿Qué diferencias observas con el resultado anterior?</p>
+        <span class="prompt-text"><em><b>"Escribí un texto breve sobre una bicicleta. Está dirigido a alguien que está pensando en comprar su primera bicicleta."</b></em></span>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
+    </div>
+                <p>Compará esta respuesta con la anterior.</p>
+                <p><b>¿Qué cambió? ¿Qué información apareció ahora que antes no estaba?</b></p>
                 
-                <p>Finalmente probemos una tercera versión, aún más precisa. No sólo le daremos información de contexto sino que además le especificaremos el formato que buscamos obtener. Abrí una conversación nueva e ingresa el siguiente prompt:</p>
+                <p>Abrí una nueva conversación y escribí:</p>
                 <div class="prompt-box">
-                    <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
-                    <span class="prompt-text">"Soy docente de 5to grado en una escuela primaria pública de Córdoba Capital, Argentina. Necesito una actividad de 40 minutos para introducir el concepto de fracciones. Los estudiantes ya saben sumar y restar números enteros. Quiero que la actividad sea concreta, con materiales que cualquier familia pueda tener en casa. El formato que necesito es: objetivo de la actividad, materiales, paso a paso en 5 etapas, y una pregunta de cierre para los estudiantes."</span>
-                </div>
+        <span class="prompt-text"><em><b>"Escribí un texto breve sobre una bicicleta. Está dirigido a alguien que está pensando en comprar su primera bicicleta y quiere decidir entre usarla para trasladarse por la ciudad o para salir a andar los fines de semana."</b></em></span>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
+    </div>
 
-                <details style="margin-top: 20px;">
-                    <summary>⚠️ Nota sobre la memoria del sistema:</summary>
-                    <p style="margin-top: 10px;">Si tu interfaz de IA tiene activada la opción de "memoria" o "perfil personalizado", la Versión 1 ya podría arrojar un resultado sorprendentemente preciso. Esto ocurre porque el modelo ya retiene datos previos sobre quién sos y qué hacés. Prestá atención a este comportamiento.</p>
-                </details>
+                <p>Ahora, mirá las tres respuestas en conjunto</p>
+<p style="margin-left: 20px;">• ¿Qué cambió cuando cambió el contexto?</p>
+<p style="margin-left: 20px;">• ¿Toda la información que agregamos produjo un cambio relevante?</p>
+<p style="margin-left: 20px;">• ¿Qué información parece haber sido importante para la respuesta que produjo el modelo?</p>
+<p><b>No busques cuál es la "mejor" respuesta. Buscá las diferencias.</b></p>
 
                 <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold; display: block; margin-top: 20px;">Notas de observación del experimento:</label>
                 <textarea id="notaExperimento2" class="interactive-input" rows="4" placeholder="Escribí tus notas acá..."></textarea>
@@ -345,9 +348,14 @@
 
             <div class="paso">
                 <h2>¿Qué está pasando?</h2>
-                <p>¿Qué notaste en las respuestas de cada versión de prompt?</p>
-                <p>Probablemente, la Versión 1 produjo una respuesta genérica y estándar. Esto pasa porque, ante la falta de datos de contexto, la máquina se ve obligada a "rellenar" los vacíos de información que necesita para entregarte una respuesta recurriendo a los patrones estadísticos más frecuentes que tuvo en su entrenamiento (que suelen ser de nivel universitario y de contextos anglosajones).</p>
-                <p>Cada elemento de contexto que agregás funciona como un filtro: reduce el espacio de respuestas posibles y orienta la respuesta hacia tu necesidad real. No es magia ni comprensión humana, es achicar el espacio de búsqueda estadística que la máquina hace dentro de todo el corpus de datos con los que fue entrenada.</p>
+                <p>¿Qué notaste al comparar las tres respuestas?</p>
+                <p>Aunque la tarea era la misma, las respuestas cambiaron cuando modificamos el contexto disponible para el modelo.</p>
+                <p>En la primera consulta, el modelo contaba con poca información sobre el propósito del texto. Por eso, su respuesta tuvo que construirse a partir de las regularidades que había aprendido y del contexto limitado de esa interacción.</p>
+                <p>Cuando incorporamos información sobre para quién era el texto y para qué podía necesitarlo, cambiaron los aspectos que aparecieron en la respuesta. Esto nos permite observar algo importante: el modelo no genera una respuesta independiente del contexto. La información disponible en la consulta condiciona el texto que puede producir.</p>
+                <p>Pero hay una pregunta más interesante:</p>
+                <p style="margin-left: 20px;"><b>¿Toda la información que agregamos resulta igualmente relevante?</b></p>
+                <p>No se trata de agregar cada vez más datos. Se trata de decidir qué información forma parte del contexto que necesitamos poner a disposición del modelo para una determinada tarea.</p>
+
                 
                 <div class="rlhf-container">
     <div class="rlhf-crop-wrapper rlhf-crop-wrapper--large">
@@ -358,31 +366,11 @@
 
             <div class="paso">
                 <h2>Construyendo criterio</h2>
-                <p>Conocer el funcionamiento de la máquina nos permite hacer un uso adecuado de ella, sacándole provecho y usandola con sentido crítico.</p>
-                <p>Conociendo lo que vimos en el punto anterior, ¿qué reflexiones te surgen sobre este experimento? Podés escribirlas aquí y luego descargarlas.</p>
-                
-                <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold;">Reflexión sobre el contexto explicitado</label>
-                <textarea id="notaCriterio2" class="interactive-input" rows="4" placeholder="Escribí tus reflexiones acá..."></textarea>
-                
-                <p>Para sacarle el jugo a tu asistente IA estas son algunas recomendaciones que los expertos nos dejan sobre el tema:</p>
-                <p>Para formular consignas eficientes en tus tareas de estudio, trabajo o planificación cotidiana, podés guiarte por el marco estructurado <strong>CLEAR</strong> (Lo, 2023):</p>
-                <ul>
-                    <li><strong>C (Conciso):</strong> Directo al punto, sin rodeos ni cortesías innecesarias que sumen ruido estadístico.</li>
-                    <li><strong>L (Lógico):</strong> Estructura coherente que conecte claramente lo que necesitás con la situación en la que estás.</li>
-                    <li><strong>E (Explícito):</strong> Nada se da por sentado. Se definen niveles, materias, destinatarios y límites.</li>
-                    <li><strong>A (Adaptable):</strong> Diseñado como un diálogo iterativo. No se busca el resultado perfecto al primer intento, sino ajustar sobre la marcha.</li>
-                    <li><strong>R (Reflexivo):</strong> Una vez recibido el output, evaluar críticamente: ¿Qué faltó especificar en mi mensaje original para que el resultado fuera mejor?</li>
-                </ul>
-
-                <div class="code-block">
-                    <strong>📋 Plantilla mínima universal para prompts:</strong><button class="copy-btn" onclick="copyTextBlock(this)" style="margin-top: -2px;">Copiar</button><br><br>
-                    <span class="block-to-copy">Contexto: [Quién sos / En qué situación o marco te encontrás]<br>
-                    Tarea: [Qué necesitás que el modelo haga exactamente]<br>
-                    Audiencia: [A quién está dirigido el resultado final]<br>
-                    Formato: [Cómo querés que se organize y presente la respuesta]<br>
-                    Restricciones: [Qué límites fijás / Qué elementos NO debe incluir]</span>
+                <p>Lo que vimos no significa que <b>cuanta más información demos, mejor será la respuesta</b>. El contexto puede modificar lo que produce un modelo, pero no toda la información resulta igualmente relevante.</p>
+                <p>Una consulta no es solamente una pregunta: también pone a disposición del modelo <b>las condiciones de la tarea</b>. El propósito, el destinatario, la situación, los límites o los criterios que consideramos importantes pueden orientar de maneras diferentes el texto que produzca.</p>
+                <p>Por eso, construir contexto no consiste en contarle todo. Consiste en <b>decidir qué información importa para una determinada tarea.</b></p>
                 </div>
-            </div>
+                
 
             <div class="paso">
                 <h2>IA y algo más</h2>
@@ -397,7 +385,7 @@
 
             <div class="paso">
                 <h2>En el Aula</h2>
-                <p>Compartir y ensayar la interacción tecnológica en comunidad permite visibilizar los vacíos de interpretación que a veces nos pasan desaperbicitos. Te sugerimos dos dinámicas grupales adaptables:</p>
+                <p>Compartir y ensayar la interacción tecnológica en comunidad permite visibilizar los vacíos de interpretación que a veces nos pasan desapercibidos. Te sugerimos dos dinámicas grupales adaptables:</p>
                 
                 <details>
                     <summary>Dinámica 1: El juego del mensaje (Talleres iniciales / Introducción)</summary>
@@ -422,7 +410,7 @@
         <div id="navigationControls" class="navigation-controls" style="display: none;">
             <button id="prevBtn" class="nav-btn">&larr; Anterior</button>
             
-            <span id="stepIndicator">Paso 1 de 7</span>
+            <span id="stepIndicator">Paso 1 de 8</span>
             <button id="nextBtn" class="nav-btn">Siguiente &rarr;</button>
         </div>
 
