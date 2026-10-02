@@ -449,7 +449,7 @@ summary:hover {
 }
 
 .nav-btn {
-    background: var(--negro-azulado);
+    background: var(--azul-oscuro);
     color: var(--blanco);
     border: none;
     padding: 10px 18px;
@@ -462,7 +462,7 @@ summary:hover {
 }
 
 .nav-btn:hover:not(:disabled) {
-    background: var(--azul-oscuro);
+    background: var(--celeste);
 }
 
 .nav-btn:disabled {
