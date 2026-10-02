@@ -314,7 +314,7 @@ ul li::marker { color: var(--azul-oscuro); }
 }
 
 .download-btn:hover {
-    background-color: var(--negro-azulado);
+    background-color: var(--celeste);
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(15, 67, 121, 0.2);
 }
