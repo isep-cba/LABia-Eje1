@@ -3,296 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorio de Experimentación IA</title>
+    <title>Laboratorio de Experimentación IA - Caso 2</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Raleway:wght@800&display=swap" rel="stylesheet">
-    
 </head>
 <body>
 
     <div class="container">
 
-        <!-- DASHBOARD PRINCIPAL -->
-        <div id="mainDashboard" class="dashboard">
+        <!-- CONTENEDOR CASO 2 -->
+        <div id="caso2Container" class="contenedor-caso active">
             
-            
-            <div class="grid-casos">
-    <!-- Título general agregado en la parte superior -->
-    <h2 style="grid-column: 1 / -1; font-size: 1.6rem; color: var(--azul-oscuro); text-align: center; margin-bottom: 10px;">
-        Descifrando el Lenguaje Artificial
-    </h2>
-
-    <div class="tarjeta-caso" onclick="iniciarCaso(1)">
-        <div>
-            <div class="tarjeta-badge">CASO DE EXPLORACIÓN 01</div>
-            <h2 class="tarjeta-titulo">¿Por qué la IA siempre me da la razón?</h2>
-            <p class="tarjeta-desc">¿Alguna vez notaste que la inteligencia artificial suele amoldarse a tus opiniones cuando le preguntás algo? Vamos a investigar cómo influye nuestra forma de hablarle en las respuestas que nos devuelve.</p>
-        </div>
-        <button class="btn-iniciar">Iniciar &rarr;</button>
-    </div>
-    
-    <div class="tarjeta-caso" onclick="iniciarCaso(2)">
-        <div>
-            <div class="tarjeta-badge">CASO DE EXPLORACIÓN 02</div>
-            <h2 class="tarjeta-titulo">¿Qué cambia cuando modificamos el contexto de una consulta?</h2>
-            <p class="tarjeta-desc">Vamos a explorar cómo la información disponible para un modelo de lenguaje puede incidir en las respuestas que produce.</p>
-        </div>
-        <button class="btn-iniciar">Iniciar &rarr;</button>
-    </div>
-</div>
-        </div>
-
-
-        <!-- CONTENEDOR CASO 1 -->
-        <div id="caso1Container" class="contenedor-caso">
-            <div class="top-bar">
-        <button class="home-btn" onclick="volverAlMenu()">Volver al Menú</button>
-    </div>
-            <div class="progress-bar-container" id="progressBar1">
+            <div class="progress-bar-container" id="progressBar2">
                 <div class="progress-segment" title="Carátula"></div>
                 <div class="progress-segment" title="Introducción"></div>
                 <div class="progress-segment" title="Experimento"></div>
                 <div class="progress-segment" title="Análisis"></div>
                 <div class="progress-segment" title="Criterio"></div>
-                <div class="progress-segment" title="Debate"></div>
-                <div class="progress-segment" title="Encuentro"></div>
-                <div class="progress-segment" title="Comunidad"></div>
+                <div class="progress-segment" title="En el aula"></div>
             </div>
 
             <!-- Paso 1: Carátula -->
-            <div class="paso">
-                <div class="lab-cover">
-                    <div class="cover-badge">CASO DE EXPLORACIÓN</div>
-                    <h1 class="cover-title">¿Por qué la IA siempre me da la razón?</h1>
-                    <p style="color: var(--azul-oscuro); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
-                        ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
-                    </p>
-                    
-                </div>
-            </div>
-
-            <!-- Paso 2: Introducción con la Encuesta Dinámica Solicitada -->
-            <div class="paso">
-                <h2 style="color: var(--azul-oscuro);">¿Por qué la IA siempre me da la razón?</h2>
-                <p>Muchas veces usamos la IA para buscar ideas, resolver dudas o pedir una segunda opinión. Pero hay una pregunta que te proponemos hacerte:</p>
-                
-                <div class="poll-box">
-                    <p class="poll-question">Cuando usás un modelo de lenguaje, ¿qué esperás obtener de sus respuestas?</p>
-                    <div id="pollOptions">
-                        <button class="poll-option-btn" onclick="submitPoll('Que amplíe las perspectivas que estoy considerando.', this)">Que amplíe las perspectivas que estoy considerando.</button>
-                        <button class="poll-option-btn" onclick="submitPoll('Que produzca una respuesta clara y útil.', this)">Que produzca una respuesta clara y útil.</button>
-                        <button class="poll-option-btn" onclick="submitPoll('Que cuestione los supuestos de mi planteo.', this)">Que cuestione los supuestos de mi planteo.</button>
-                        <button class="poll-option-btn" onclick="submitPoll('Que desarrolle la perspectiva que propongo.', this)">Que desarrolle la perspectiva que propongo.</button>
-                    </div>
-                    <div id="pollFeedbackContainer" style="display: none;">
-                        <p class="poll-feedback"><b>No hay respuestas correctas. Guardaremos tu elección</b> y volveremos sobre ella al final de la exploración.</p>
-                    </div>
-                </div>
-                <div style="margin-top: 20px; padding: 16px; background-color: var(--celeste-claro, #e0f2fe); border: 0px solid var(--azul-oscuro); border-radius: 16px; color: var(--azul-oscuro); text-align: center;">
-    <p style="margin: 0; font-weight: 500; font-size: 1.05rem;">
-        En este caso de exploración vamos a poner a prueba algo bastante curioso: cuánto influye la forma en que presentamos una idea en la respuesta que obtenemos.
-    </p>
-</div>
-            </div>
-
-           <!-- Paso 3: Experimento -->
-<div class="paso">
-    <h2 style="color: var(--azul-oscuro);">Vamos a experimentar</h2>
-    <p><strong>Experimento 1: Dos certezas opuestas</strong></p>
-    <p>1. Copiá este prompt y pegalo en el asistente de IA que uses (Gemini, ChatGPT, otro):</p>
-    <div class="prompt-box">
-        <span class="prompt-text"><em><b>"En muchas escuelas existe preocupación por el impacto de los videojuegos en el aprendizaje de los adolescentes. ¿Cuáles son los principales argumentos que sostienen esa preocupación?"</b></em></span>
-        <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
-    </div>
-    <p>2. Leé la respuesta.<br> Ahora abrí una conversación nueva y probá con este otro:</p>
-    <div class="prompt-box">
-        <span class="prompt-text"><em><b>"Cada vez más investigaciones destacan el potencial educativo de los videojuegos. ¿Cuáles son los principales argumentos que explican ese interés?"</b></em></span>
-        <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
-    </div>
-    <p style="margin-top: 20px; font-weight: bold; color: var(--azul-oscuro);">
-    No nos concentremos en cuál tiene razón, sólo observemos:
-</p>
-
-<!-- Contenedor Damero -->
-<div class="damero-preguntas">
-    <div class="tarjeta-damero par">
-        <span class="numero-damero">01</span>
-        <p>¿Qué cambios de tono o comportamiento notaste en la IA entre la primera y la segunda respuesta?</p>
-    </div>
-    <div class="tarjeta-damero impar">
-        <span class="numero-damero">02</span>
-        <p>¿La respuesta cuestiona el punto de partida de la pregunta o lo toma como marco para construir sus argumentos?</p>
-    </div>
-    <div class="tarjeta-damero impar">
-        <span class="numero-damero">03</span>
-        <p>¿Qué imagen de los videojuegos construye cada respuesta?</p>
-    </div>
-    <div class="tarjeta-damero par">
-        <span class="numero-damero">04</span>
-        <p>Si sólo leyeras una de las dos respuestas, ¿qué impresión te llevarías sobre el tema?</p>
-    </div>
-    
-</div>
-    
-    <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold;">Notas de observación del experimento</label>
-    <textarea id="notaExperimento1" class="interactive-input" rows="4" placeholder="Escribí tus notas acá..."></textarea>
-</div>
-
-            <!-- Paso 4: Análisis -->
-            <div class="paso">
-                <h2 style="color: var(--azul-oscuro);">¿Qué está pasando?</h2>
-                <p>Quizás notaste algo llamativo. En muchos casos, el modelo produjo respuestas que se ajustaron al marco que le propusimos. En otras ocasiones incorporó matices o reparos, pero igualmente produjo una respuesta compatible con la perspectiva planteada en la consulta.</p>
-                <p>¿Por qué ocurre esto? Los modelos de lenguaje no evalúan las ideas como lo hace una persona. Generan texto a partir de regularidades aprendidas durante su entrenamiento y del contexto disponible en cada interacción. Su funcionamiento consiste en identificar patrones en enormes cantidades de textos y generar respuestas que resulten coherentes con la conversación que están manteniendo. Eso ya produce un primer efecto: la IA suele tomar como punto de partida aquello que le presentamos. Si formulamos una afirmación de manera categórica, esa formulación puede funcionar como parte del contexto a partir del cual el modelo construye su respuesta.</p>
-                <p>Pero además hay otro aspecto importante. Durante su entrenamiento, estos modelos no sólo aprenden lenguaje. También son ajustados para producir respuestas que las personas consideran útiles, claras y satisfactorias. Para ello intervienen evaluadores humanos que comparan distintas respuestas y señalan cuáles resultan más valiosas en una conversación. Uno de los procesos utilizados para realizar ese ajuste se conoce como RLHF (<em>Reinforcement Learning from Human Feedback</em>, o aprendizaje por refuerzo a partir de retroalimentación humana).</p>
-                <p style="line-height: 1.6;">
-    Estos procedimientos pueden contribuir a orientar el comportamiento de los modelos hacia respuestas que resulten preferibles para quienes las evalúan, aunque no explican por sí solos todos los comportamientos asociados a la sicofancia.
-</p>
-
-<!-- Bloque de definición destacado -->
-<aside style="background: #f8fafc; border-left: 3px solid var(--celeste); padding: 12px 16px; border-radius: 0 12px 12px 0; margin: 16px 0; color: var(--negro-azulado);">
-    <strong style="color: var(--azul-oscuro);">Sicofancia:</strong> la tendencia de un modelo a validar o reforzar lo que el usuario propone, incluso cuando sería razonable introducir más dudas, matices o perspectivas alternativas.
-</aside>
-                <p>El fenómeno no implica que el sistema esté evaluando una posición y elija deliberadamente reforzarla. Tampoco supone una intención de engañar: el modelo no tiene una intención propia que explique el resultado. Es el resultado de cómo distintos factores del entrenamiento, el ajuste y el contexto de la interacción inciden en el texto que genera</p>
-                
-                <div class="rlhf-container">
-                    <img src="grafico1eje1.jpg" alt="Infografía RLHF" class="rlhf-img">
-                    <p class="rlhf-text" style="font-size: 0.88rem; color: #5a6b82; font-style: italic; line-height: 1.5; margin-top: 10px;">
-    ¿Cómo funciona el RLHF? En este proceso, personas evalúan las respuestas del modelo. Como se suelen premiar las opciones que confirman lo que el usuario piensa, la IA aprende a darnos la razón para optimizar su puntaje.
-</p>
-                </div>
-            </div>
-
-            <!-- Paso 5: Criterio con la Caja de Recuperación de Memoria Requerida -->
-            <div class="paso">
-                <h2 style="color: var(--azul-oscuro);">Construyendo criterio</h2>
-                
-                <!-- CAJA DE RECUPERACIÓN INTERACTIVA -->
-                <div class="recall-box" id="recallBox1">
-                    <p style="margin-bottom: 0; font-size: 0.95rem; color: var(--negro-azulado);">
-                        🔄 <b>Recordando tu postura inicial:</b> Al comenzar este laboratorio indicaste que de una IA esperás: 
-                        <span id="userChoiceText" style="font-weight: 600; color: var(--moradito);">[Aún no seleccionaste una opción]</span> 
-                        Después de observar cómo respondió en los experimentos, quizás valga la pena volver sobre esa expectativa.<br>¿Esperamos que una IA nos acompañe? ¿Que nos contradiga? ¿Que nos ayude a pensar? ¿Que nos ofrezca nuevas perspectivas?
-                    </p>
-                </div>
-
-                <p style="line-height: 1.6;">
-    Tal vez la cuestión más importante no sea cuál de esas opciones es la correcta, sino comprender qué tipo de sistema tenemos delante y qué podemos esperar de sus respuestas.<br>
-    La exploración que acabamos de realizar muestra algo importante: <strong style="color: var(--azul-oscuro); font-weight: 600;">un modelo de lenguaje no constituye una instancia externa e imparcial para analizar nuestras ideas. Tampoco un especialista que analiza críticamente cada afirmación que hacemos. Con frecuencia, tenderá a tomar como punto de partida el marco que le proponemos y a desarrollar una respuesta a partir de él.</strong> Comprender esto nos permite construir algunos criterios para interactuar con estas herramientas.
-</p>
-                <details>
-                    <summary>La forma de preguntar también construye la respuesta</summary>
-                    <p style="margin-top: 10px;">Cuando conversamos con una IA solemos prestar atención a las respuestas. Sin embargo, esta exploración nos muestra que también vale la pena mirar las preguntas.<br>Una afirmación formulada con mucha seguridad puede orientar la conversación en una dirección determinada. Una pregunta cerrada suele producir respuestas cerradas. En cambio, una pregunta que invita a explorar alternativas, comparar perspectivas o identificar limitaciones suele abrir respuestas más diversas y matizadas.</p>
-                </details>
-                <details>
-                    <summary>La IA no es un árbitro neutral</summary>
-                    <p style="margin-top: 10px;">Un modelo de lenguaje puede ser una herramienta útil para explorar una idea, pero no debería convertirse en la última palabra sobre ella.</p>
-                    <p>A veces tendemos a utilizar estas herramientas para verificar si tenemos razón. A veces tendemos a utilizar estas herramientas como si ofrecieran una evaluación externa y objetiva de nuestras ideas. Pero la experiencia mostró que la situación es más compleja. <br> Los modelos pueden producir información, reorganizar contenidos o generar formulaciones que nos permitan considerar perspectivas diferentes de las que habíamos planteado inicialmente. Sin embargo, también pueden verse influenciadas por el modo en que presentamos un problema o por las expectativas que proyectamos sobre ellas. Por eso, más que buscar validación, conviene considerar sus respuestas como un insumo para pensar, revisar y ampliar nuestras propias interpretaciones.</p>
-                </details>
-                <details>
-                    <summary>Podemos diseñar conversaciones que amplíen nuestro pensamiento</summary>
-                    <p style="margin-top: 10px;">Si sabemos que la IA puede tender a acompañar nuestros planteos, podemos hacer algo con ese conocimiento. No se trata de desconfiar de cada respuesta ni de intentar engañar a la herramienta. Se trata de formular preguntas que nos ayuden a salir de nuestros propios marcos.</p>
-                    <p>Por ejemplo: "¿Qué objeciones podría recibir esta idea?", "¿qué aspectos no estoy considerando?", ¿cómo analizaría este problema alguien con otra perspectiva?, ¿qué supuestos están sosteniendo mi planteo?</p>
-                    <p>La diferencia parece pequeña, pero no lo es. Pasamos de preguntarle a la IA si estamos en lo cierto a utilizarla para explorar aquello que todavía no habíamos pensado. Y quizás ahí aparezca uno de los usos más interesantes de estas herramientas: no cuando confirman nuestras ideas, sino cuando nos ayudan a volverlas más complejas.</p>
-                </details>
-                
-
-                <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold; display: block; margin-top: 20px;">Reflexiones sobre el experimento</label>
-                <textarea id="notaCriterio1" class="interactive-input" rows="4" placeholder="Escribí tus reflexiones acá..."></textarea>
-            </div>
-
-            <!-- Paso 6: Debate -->
-            <div class="paso">
-                <h2 style="color: var(--azul-oscuro);">IA y algo más</h2>
-                <p>Muchas de las preguntas que aparecen cuando observamos cómo funciona una IA remiten a problemas más amplios: cómo construimos conocimiento, en quién confiamos, cómo tomamos decisiones o qué lugar ocupan las tecnologías en nuestra vida cotidiana. <br>Te proponemos algunas preguntas para seguir pensando más allá de la herramienta.</p>
-                <h3 style="color: var(--celeste);">Sobre la IA</h3>
-                <ul>
-                    <li>¿Qué esperamos obtener de un sistema cuando la respuesta que produce no coincide con nuestra posición?</li>
-                    <li>¿Qué tipo de respuesta resulta más útil: una que desarrolla nuestro planteo o una que introduce objeciones y perspectivas diferentes?</li>
-                    <li>¿Cómo cambia una respuesta cuando la pregunta ya contiene una postura previa?</li>
-                </ul>
-                <h3 style="color: var(--celeste);">Y algo más...</h3>
-                <ul>
-                    <li>¿Qué valor tiene el desacuerdo para aprender algo nuevo?</li>
-                    <li>¿Cómo distinguimos entre una crítica que nos ayuda a pensar y una oposición que simplemente rechaza nuestras ideas?</li>
-                    <li>¿Qué lugares existen hoy para encontrarnos con perspectivas distintas de las nuestras?</li>
-                </ul>
-            </div>
-            <!-- Paso 6: Encuentro -->
-            <div class="paso">
-                <h2>Encuentro y debate</h2>
-                <p>La exploración que acabás de realizar ocurrió, probablemente, frente a una pantalla, interactuando con una herramienta. Sin embargo, muchas de las preguntas que abrió no se responden en soledad.</p>
-                <p><b>¿Qué ocurre cuando distintas personas observan las mismas respuestas? ¿Qué aspectos ve cada una? ¿Qué interpretaciones aparecen cuando ponemos esas observaciones en común?</b></p>
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; margin: 25px 0;">
-    <!-- Contenedor con los dos párrafos -->
-    <div style="margin: 5px 0;">
-    <!-- Primer párrafo arriba ocupando todo el ancho -->
-    <p style="margin-bottom: 16px; line-height: 1.6;">
-        Si sos docente, estas dinámicas pueden convertirse en una oportunidad para llevar la experiencia al aula y trabajar con estudiantes sobre la construcción de argumentos, las formas de preguntar y el modo en que las tecnologías participan en la producción de conocimiento. Si participás de un equipo de trabajo o de un espacio de formación, también pueden servir para abrir conversaciones colectivas sobre cómo interactuamos con estas herramientas y qué esperamos de ellas.
-    </p>
-
-    <!-- Fila inferior: Texto alineado horizontalmente con la flecha -->
-    <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
-        <p style="margin: 0; font-weight: 600; color: var(--azul-oscuro);">
-            Te proponemos dos posibles recorridos.
-        </p>
-        <span style="font-size: 1.8rem; color: var(--azul-oscuro); user-select: none; line-height: 1;">
-            &rarr;
-        </span>
-    </div>
-</div>
-</div>
-                
-            </div>
-
-            <!-- Paso 7: Comunidad -->
-            <div class="paso">
-                <h2 style="color: var(--azul-oscuro);">En el aula</h2>
-                <p>Esta exploración puede convertirse en una gran oportunidad para conversar sobre algo que excede a la inteligencia artificial: cómo influyen nuestras preguntas, creencias y expectativas en las respuestas que obtenemos.</p>
-                
-                <details>
-                    <summary>Dinámica 1: El espejo roto (Posturas contrapuestas)</summary>
-                    <p style="margin-top: 10px;"><b>Una posibilidad</b> es trabajar divididos en dos equipos a partir de posiciones contrapuestas sobre un tema de interés común. Cada equipo le pide a la IA argumentos para defender su respectiva postura. Luego, se ponen en común los textos generados y se analizan de manera colectiva.</p>
-                    <p>El foco de atención ya no es debatir quién tiene la razón, sino desarmar qué hizo la IA en cada caso:</p>
-                    <ul>
-                        <li>¿Qué tipo de argumentos eligió para cada bando?</li>
-                        <li>¿Qué datos u omisiones intencionales aparecieron?</li>
-                        <li>¿Qué tan dispuesta estuvo a acomodarse a cada posición?</li>
-                    </ul>
-                </details>
-                <details>
-                    <summary>Dinámica 2: El prisma (Múltiples herramientas)</summary>
-                    <p style="margin-top: 10px;"><b>Otra alternativa</b> consiste en formular una misma pregunta compleja de manera colectiva y testearla en diferentes herramientas de IA en simultáneo o variando sutilmente la introducción. El valor de la experiencia está en comparar, discutir y mapear las diferencias del discurso de cada modelo.</p>
-                </details>
-                <p style="margin-top: 20px;">En todos los casos, la experiencia gana potencia cuando el uso de la IA no termina en la pantalla individual. Lo valioso ocurre después: cuando las respuestas circulan, se contrastan y se convierten en objeto de conversación crítica.<br><b>La IA puede aportar nuevas voces a la mesa. Pero el pensamiento crítico y el debate siguen siendo tareas profundamente humanas.</b></p>
-                
-                <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold; display: block; margin-top: 25px;">Plan de acción o ideas de aplicación:</label>
-                <textarea id="notaAula1" class="interactive-input" rows="4" placeholder="Escribí tu plan/ideas acá..."></textarea>
-
-                <button class="download-btn" onclick="descargarBitacora(1)">
-                    <span></span> Descargar mis notas del Caso 1
-                </button>
-            </div>
-        </div>
-
-
-        <!-- CONTENEDOR CASO 2 (MANTENIDO EXACTAMENTE IGUAL A TU ÚLTIMA VERSIÓN) -->
-        <div id="caso2Container" class="contenedor-caso">
-            <div class="top-bar">
-        <button class="home-btn" onclick="volverAlMenu()">Volver al Menú</button>
-    </div>
-            <div class="progress-bar-container" id="progressBar2">
-                <div class="progress-segment" title="Título"></div>
-                <div class="progress-segment" title="Introducción"></div>
-                <div class="progress-segment" title="Experimento"></div>
-                <div class="progress-segment" title="Análisis"></div>
-                <div class="progress-segment" title="Criterio"></div>
-                <div class="progress-segment" title="Preguntas"></div>
-                <div class="progress-segment" title="Debate"></div>
-                <div class="progress-segment" title="Comunidad"></div>
-            </div>
-
             <div class="paso">
                 <div class="lab-cover">
                     <div class="cover-badge">CASO DE EXPLORACIÓN</div>
@@ -300,190 +33,130 @@
                     <p style="color: var(--azul-oscuro); font-size: 0.9rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
                         ⏱️ Tiempo estimado de exploración: 15 a 20 minutos.
                     </p>
-                    
                 </div>
             </div>
 
+            <!-- Paso 2: Introducción -->
             <div class="paso">
-                <h2 style="color: var(--azul-oscuro);">¿Qué cambia cuando modificamos el contexto de una consulta?</h2>
-                <p>Cuando trabajamos con otras personas, muchas veces no necesitamos explicar todo. Compartimos conocimientos sobre el contexto, los objetivos, las formas de trabajar y aquello que damos por supuesto.</p>
-                <p>Con un modelo de lenguaje, parte de ese contexto debe estar disponible en la interacción para que pueda incorporarlo a la respuesta. Por eso, cuando modificamos la información que le proporcionamos, también pueden cambiar las respuestas que produce.</p>
-                <p>En esta exploración vamos a ponerlo a prueba: ¿qué cambia cuando una misma consulta se presenta con distintos contextos?</p>
+                <h2 style="color: var(--azul-oscuro);">El marco importa</h2>
+                <p>Cuando hacemos una pregunta a un modelo de lenguaje, solemos enfocar la atención en el tema principal de la consulta. Sin embargo, la cantidad y el tipo de información contextual que acompañan esa pregunta pueden cambiar de manera significativa la respuesta que obtenemos.</p>
+                <div style="margin-top: 20px; padding: 16px; background-color: var(--celeste-claro, #e0f2fe); border-radius: 16px; color: var(--azul-oscuro); text-align: center;">
+                    <p style="margin: 0; font-weight: 500; font-size: 1.05rem;">
+                        En esta exploración vamos a analizar cómo responde un modelo cuando variamos la información de contexto en una misma solicitud.
+                    </p>
+                </div>
             </div>
 
+            <!-- Paso 3: Experimento -->
             <div class="paso">
-                <h2 style="color: var(--azul-oscuro);">Pongamos a prueba el contexto</h2>
-                <p>Vamos a probar <b>una misma tarea con distintas versiones de una consulta.</b></p>
-                <p>Para que podamos comparar las respuestas, hacé <b>cada prueba en una conversación nueva</b>. De ese modo, el modelo no tendrá disponible lo que escribiste en las pruebas anteriores.</p><p>En cada conversación, cambiá solamente la información que aparece en la consulta.</p><p><b>No buscamos encontrar el mejor prompt</b>, sino observar qué cambia en las respuestas cuando cambia el contexto disponible.</p>
-                <p>Abrí una conversación nueva y escribí:</p>
+                <h2 style="color: var(--azul-oscuro);">Vamos a experimentar</h2>
+                <p><strong>Experimento 2: Del pedido genérico al contexto situado</strong></p>
                 
+                <p>1. Copiá este primer prompt (sin contexto) y pegalo en tu asistente de IA:</p>
                 <div class="prompt-box">
-        <span class="prompt-text"><em><b>"Escribí un texto breve sobre una bicicleta."</b></em></span>
-        <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
-    </div>
-                <p>Leé la respuesta y prestá atención a qué aspectos aparecen y qué supone el modelo sobre aquello que necesitamos.</p>
-                
-                <p>Abrí <b>otra conversación nueva</b> y escribí:</p>
-                <div class="prompt-box">
-        <span class="prompt-text"><em><b>"Escribí un texto breve sobre una bicicleta. Está dirigido a alguien que está pensando en comprar su primera bicicleta."</b></em></span>
-        <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
-    </div>
-                <p>Compará esta respuesta con la anterior.</p>
-                <p><b>¿Qué cambió? ¿Qué información apareció ahora que antes no estaba?</b></p>
-                
-                <p>Abrí una nueva conversación y escribí:</p>
-                <div class="prompt-box">
-        <span class="prompt-text"><em><b>"Escribí un texto breve sobre una bicicleta. Está dirigido a alguien que está pensando en comprar su primera bicicleta y quiere decidir entre usarla para trasladarse por la ciudad o para salir a andar los fines de semana."</b></em></span>
-        <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
-    </div>
+                    <span class="prompt-text"><em><b>"Escribí una secuencia didáctica para enseñar fotosíntesis."</b></em></span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
+                </div>
 
-                <p>Ahora, mirá las tres respuestas en conjunto</p>
-<p style="margin-left: 20px;">• ¿Qué cambió cuando cambió el contexto?</p>
-<p style="margin-left: 20px;">• ¿Toda la información que agregamos produjo un cambio relevante?</p>
-<p style="margin-left: 20px;">• ¿Qué información parece haber sido importante para la respuesta que produjo el modelo?</p>
-<p><b>No busques cuál es la "mejor" respuesta. Buscá las diferencias.</b></p>
+                <p>2. Leé la respuesta.<br>Ahora abrí un chat nuevo y probá este segundo prompt (con contexto):</p>
+                <div class="prompt-box">
+                    <span class="prompt-text"><em><b>"Diseñá una propuesta didáctica de 2 clases sobre fotosíntesis para estudiantes de 1.° año de secundaria de una escuela urbana. El enfoque debe ser inductivo, a partir de una experiencia práctica sencilla con plantas de sombra y luz. La actividad debe durar 80 minutos por clase e incluir una instancia de evaluación formativa mediante una rúbrica breve."</b></em></span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">Copiar</button>
+                </div>
 
-                
+                <p style="margin-top: 20px; font-weight: bold; color: var(--azul-oscuro);">
+                    Observemos las diferencias entre ambas respuestas:
+                </p>
+
+                <div class="damero-preguntas">
+                    <div class="tarjeta-damero par">
+                        <span class="numero-damero">01</span>
+                        <p>¿Qué decisiones metodológicas tomó la IA cuando no le diste contexto?</p>
+                    </div>
+                    <div class="tarjeta-damero impar">
+                        <span class="numero-damero">02</span>
+                        <p>¿De qué manera cambió la estructura y la utilidad del texto en la segunda opción?</p>
+                    </div>
+                    <div class="tarjeta-damero impar">
+                        <span class="numero-damero">03</span>
+                        <p>¿Qué elementos del contexto fueron tomados en cuenta de forma explícita?</p>
+                    </div>
+                    <div class="tarjeta-damero par">
+                        <span class="numero-damero">04</span>
+                        <p>¿Cuál de los dos resultados requeriría mayor trabajo de adaptación por tu parte?</p>
+                    </div>
+                </div>
+
+                <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold;">Notas de observación del experimento</label>
+                <textarea id="notaExperimento2" class="interactive-input" rows="4" placeholder="Escribí tus observaciones sobre las respuestas..."></textarea>
             </div>
 
+            <!-- Paso 4: Análisis -->
             <div class="paso">
                 <h2 style="color: var(--azul-oscuro);">¿Qué está pasando?</h2>
-                <p>¿Qué notaste al comparar las tres respuestas?</p>
-                <p>Aunque la tarea era la misma, las respuestas cambiaron cuando modificamos el contexto disponible para el modelo.</p>
-                <p>En la primera consulta, el modelo contaba con poca información sobre el propósito del texto. Por eso, su respuesta tuvo que construirse a partir de las regularidades que había aprendido y del contexto limitado de esa interacción.</p>
-                <p>Cuando incorporamos información sobre para quién era el texto y para qué podía necesitarlo, cambiaron los aspectos que aparecieron en la respuesta. Esto nos permite observar algo importante: el modelo no genera una respuesta independiente del contexto. La información disponible en la consulta condiciona el texto que puede producir.</p>
-                <p>Pero hay una pregunta más interesante:</p>
-                <p style="margin-left: 20px;"><b>¿Toda la información que agregamos resulta igualmente relevante?</b></p>
-                <p>No se trata de agregar cada vez más datos. Se trata de decidir qué información forma parte del contexto que necesitamos poner a disposición del modelo para una determinada tarea.</p>
-
+                <p>Cuando la consigna es breve o indeterminada, el modelo debe completar los vacíos de información recurriendo a las asociaciones más frecuentes de sus datos de entrenamiento. Por eso, las respuestas genéricas suelen parecer abstractas o estandarizadas.</p>
+                <p>Al incorporar restricciones, destinatarios, enfoques pedagógicos y límites de tiempo, reducimos el margen de ambigüedad. El modelo utiliza esa información contextual como una "ventana" más estrecha para seleccionar y organizar las palabras que siguen.</p>
                 
                 <div class="rlhf-container">
-    <div class="rlhf-crop-wrapper rlhf-crop-wrapper--large">
-        <img src="grafico1eje2.jpg" alt="Infografía" class="rlhf-img">
-    </div>
-</div>
+                    <img src="grafico1eje2.jpg" alt="Gráfico de ventana de contexto" class="rlhf-img">
+                    <p class="rlhf-text" style="font-size: 0.88rem; color: #5a6b82; font-style: italic; line-height: 1.5; margin-top: 10px;">
+                        El contexto actúa como un filtro: mientras más preciso es el marco, más pertinente es el resultado del modelo.
+                    </p>
+                </div>
             </div>
 
+            <!-- Paso 5: Criterio -->
             <div class="paso">
                 <h2 style="color: var(--azul-oscuro);">Construyendo criterio</h2>
-                <p>Lo que vimos no significa que <b>cuanta más información demos, mejor será la respuesta</b>. El contexto puede modificar lo que produce un modelo, pero no toda la información resulta igualmente relevante.</p>
-                <p>Una consulta no es solamente una pregunta: también pone a disposición del modelo <b>las condiciones de la tarea</b>. El propósito, el destinatario, la situación, los límites o los criterios que consideramos importantes pueden orientar de maneras diferentes el texto que produzca.</p>
-                <p>Por eso, construir contexto no consiste en contarle todo. Consiste en <b>decidir qué información importa para una determinada tarea</b>.</p>
-                <h3 style="color: var(--celeste);">Cuatro preguntas para construir contexto</h3>
-                <p><b>¿Qué tiene que hacer el modelo?</b> Definir con claridad la tarea que esperamos que resuelva.</p>
-                <p><b>¿Para qué situación?</b> Precisar el propósito, el destinatario o las condiciones que pueden modificar lo que necesitamos.</p>
-                <p><b>¿Qué información es relevante?</b> Distinguir aquello que puede incidir en la respuesta de lo que simplemente agrega datos.</p>
-                <p><b>¿Qué estoy dando por supuesto?</b> Hacer visible aquello que para nosotros resulta evidente, pero que no necesariamente forma parte del contexto disponible para el modelo.</p>
-                <p style="text-align: center;"><b>Construir contexto es una forma de tomar decisiones.</b></p>
-                </div>
-
-            <div class="paso">
-                <h2 style="color: var(--azul-oscuro);">Volvé sobre la exploración</h2>
-                <p>Mirá las tres consultas que probaste.</p>
-                <p><b>• ¿Qué información cambió realmente las respuestas?</b></p>
-                <p><b>• ¿Cuál podrías haber omitido sin que cambiara demasiado el resultado?</b></p>
-                <p><b>• ¿Qué supuestos aparecieron cuando esa información no estaba disponible?</b></p>
+                <p>El diseño de un prompt eficaz no requiere fórmulas mágicas, sino estructurar con claridad los elementos indispensables para orientar al modelo hacia lo que necesitamos.</p>
                 
-                <h3 style="color: var(--celeste);">Un paso más</h3>
-                <p>Probá ahora con una situación diferente. Antes de escribir la consulta, <b>no empieces por redactar</b>. Primero decidí:</p>
-                <p style="margin-left: 20px;"><b>¿Qué necesita estar disponible para que el modelo pueda producir una respuesta adecuada a esta situación?</b></p>
-                <p>Después escribí la consulta y observá qué ocurre.</p>
-                <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold; display: block; margin-top: 20px;">Notas de observación del experimento:</label>
-                <textarea id="notaExperimento2" class="interactive-input" rows="4" placeholder="Escribí tus notas acá..."></textarea>
-                </div>
-                
-
-            <div class="paso">
-                <h2 style="color: var(--azul-oscuro);">IA y algo más</h2>
-                <p>Hasta acá exploramos qué ocurre cuando modificamos el contexto que ponemos a disposición de un modelo de lenguaje. Pero hay algo más que podemos mirar en esa experiencia.</p>
-                
-                <p>Cuando usamos una herramienta de este tipo para producir un texto, <b>no desaparece el trabajo intelectual: cambia de lugar.</b></p>
-                
-                <p>Decidimos qué queremos producir, para quién, con qué propósito y qué información necesita estar disponible. Seleccionamos qué contar, qué dejar afuera, qué restricciones establecer y qué aspectos de una respuesta queremos conservar, modificar o descartar.</p>
-                
-                <p>Al mismo tiempo, <b>delegamos algunas operaciones</b>. El modelo puede proponer una formulación, organizar información, desarrollar una idea, encontrar relaciones entre elementos o producir alternativas que luego podemos revisar.</p>
-                <p>La cuestión, entonces, no es solamente <b>cuánto trabajo hace la herramienta</b>, <b>sino qué operaciones seguimos realizando nosotros, cuáles ponemos en sus manos y qué ocurre cuando dejamos de hacerlas.</b></p>
-                <h3 style="color: var(--celeste);">Y acá podemos salir de la IA</h3>
-                <p>Lo que esta exploración permite observar en una herramienta también puede abrir preguntas sobre nuestras propias formas de producir textos, tomar decisiones y construir conocimiento.</p>
-                <p>Lo que esta exploración permite observar en una herramienta también puede abrir preguntas sobre nuestras propias formas de producir textos, tomar decisiones y construir conocimiento.</p>
-                <p style="margin-left: 20px;"><b>• ¿Qué operaciones hacemos casi sin darnos cuenta cuando escribimos?</b></p>
-                <p style="margin-left: 20px;"><b>• ¿Qué cambia cuando una parte de esas operaciones queda a cargo de otra persona o de una herramienta?</b></p>
-                <p style="margin-left: 20px;"><b>• ¿Qué necesitamos seguir haciendo nosotros para poder evaluar, decidir y asumir la responsabilidad sobre el resultado?</b></p>
-                <p>La IA puede ser, en este sentido,<b> un punto de partida para mirar algo que ocurre también fuera de ella: cómo distribuimos el trabajo intelectual cuando producimos algo junto con otros.</b></p>
-            </div>
-
-            <div class="paso">
-                <h2 style="color: var(--azul-oscuro);">En el Aula</h2>
-                                
                 <details>
-                    <summary>Dinámica: ¿Qué dejamos en manos de la herramienta? (Para jóvenes y adultos)</summary>
-                    <p style="margin-top: 10px;">Un participante toma el rol de "robot" y debe realizar un dibujo o una acción en la pizarra siguiendo estrictamente las instrucciones escritas de otro compañero, quien no puede hablar ni gesticular. El "robot" debe ejecutar la orden de forma literal, sin asumir nada que no esté escrito. Si la instrucción carece de contexto explícito, el resultado se deforma con gracia. Es la analogía perfecta para entender la lógica de entrada (input) y salida (output) de un modelo de lenguaje.</p>
+                    <summary>Elementos clave de la plantilla mínima</summary>
+                    <p style="margin-top: 10px;">
+                        • <b>Rol/Contexto:</b> En qué marco te encontrás o qué perspectiva querés que asuma.<br>
+                        • <b>Tarea:</b> Qué acción precisa querés que realice el modelo.<br>
+                        • <b>Audiencia:</b> A quién está dirigido el resultado.<br>
+                        • <b>Formato:</b> Estructura deseada (lista, tabla, párrafos cortos, etc.).<br>
+                        • <b>Restricciones:</b> Qué aspectos debe evitar o qué límites debe respetar.
+                    </p>
                 </details>
 
-                <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold; display: block; margin-top: 25px;">✏️ [Espacio de Bitácora 3 — Plan de acción]:</label>
-                <textarea id="notaAula2" class="interactive-input" rows="4" placeholder="¿De qué manera o en qué espacios compartidos (clases, talleres, grupos de estudio o reuniones de equipo) aplicarías una dinámica similar para entrenar la comunicación efectiva y el criterio frente a la IA?"></textarea>
+                <label style="font-size: 0.95rem; color: var(--negro-azulado); font-weight: bold; display: block; margin-top: 20px;">Reflexiones o ideas sobre el uso del contexto</label>
+                <textarea id="notaAula2" class="interactive-input" rows="4" placeholder="Escribí tus reflexiones acá..."></textarea>
+            </div>
+
+            <!-- Paso 6: Descarga de Bitácora -->
+            <div class="paso">
+                <h2 style="color: var(--azul-oscuro);">Finalizar y descargar</h2>
+                <p>Llegaste al final de la exploración del Caso 2. Podés guardar tus registros para consultar más adelante o compartir con tu equipo de trabajo.</p>
 
                 <button class="download-btn" onclick="descargarBitacora(2)">
-                    <span></span> Descargar mis notas del Caso 2
+                    Descargar mis notas del Caso 2
                 </button>
             </div>
+
         </div>
 
-
         <!-- CONTROLES DE NAVEGACIÓN GLOBAL -->
-        <div id="navigationControls" class="navigation-controls" style="display: none;">
+        <div id="navigationControls" class="navigation-controls">
             <button id="prevBtn" class="nav-btn">&larr; Anterior</button>
-            
-            <span id="stepIndicator">Paso 1 de 8</span>
+            <span id="stepIndicator">Paso 1 de 6</span>
             <button id="nextBtn" class="nav-btn">Siguiente &rarr;</button>
         </div>
 
     </div>
 
+    <!-- SCRIPT DE NAVEGACIÓN Y FUNCIONALIDAD EXCLUSIVA DEL CASO 2 -->
     <script>
-        let casoActual = 0;
         let currentIndex = 0;
-        let pasosActivos = [];
-        let segmentosActivos = [];
-        let eleccionUsuario = ""; // Variable persistente en memoria para la encuesta
 
-        const mainDashboard = document.getElementById('mainDashboard');
-        const caso1Container = document.getElementById('caso1Container');
         const caso2Container = document.getElementById('caso2Container');
-        const navigationControls = document.getElementById('navigationControls');
-        
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const stepIndicator = document.getElementById('stepIndicator');
 
-        function iniciarCaso(numeroCaso) {
-            casoActual = numeroCaso;
-            currentIndex = 0;
-            
-            mainDashboard.style.display = 'none';
-            navigationControls.style.display = 'flex';
-            
-            if (casoActual === 1) {
-                caso1Container.classList.add('active');
-                caso2Container.classList.remove('active');
-                pasosActivos = caso1Container.querySelectorAll('.paso');
-                segmentosActivos = document.getElementById('progressBar1').querySelectorAll('.progress-segment');
-            } else {
-                caso2Container.classList.add('active');
-                caso1Container.classList.remove('active');
-                pasosActivos = caso2Container.querySelectorAll('.paso');
-                segmentosActivos = document.getElementById('progressBar2').querySelectorAll('.progress-segment');
-            }
-            
-            updateCarousel();
-        }
-
-        function volverAlMenu() {
-            caso1Container.classList.remove('active');
-            caso2Container.classList.remove('active');
-            navigationControls.style.display = 'none';
-            mainDashboard.style.display = 'flex';
-        }
+        const pasosActivos = caso2Container.querySelectorAll('.paso');
+        const segmentosActivos = document.getElementById('progressBar2').querySelectorAll('.progress-segment');
 
         function updateCarousel() {
             pasosActivos.forEach((paso, index) => {
@@ -522,129 +195,65 @@
         });
 
         function copyPrompt(button) {
-    const promptText = button.parentElement.querySelector('.prompt-text').innerText;
-    ejecutarCopia(promptText, button);
-}
-
-function copyTextBlock(button) {
-    const blockText = button.parentElement.querySelector('.block-to-copy').innerText;
-    ejecutarCopia(blockText, button);
-}
-
-// Función universal a prueba de bloques de WordPress e Iframes
-function ejecutarCopia(texto, boton) {
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(texto).then(() => {
-            mostrarExitoBoton(boton);
-        }).catch(() => {
-            fallbackCopiar(texto, boton);
-        });
-    } else {
-        fallbackCopiar(texto, boton);
-    }
-}
-
-function fallbackCopiar(texto, boton) {
-    const textArea = document.createElement("textarea");
-    textArea.value = texto;
-    // Se posiciona fuera de vista para no romper la pantalla
-    textArea.style.position = "fixed";
-    textArea.style.top = "0";
-    textArea.style.left = "-9999px";
-    
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-
-    try {
-        const exitoso = document.execCommand('copy');
-        if (exitoso) {
-            mostrarExitoBoton(boton);
+            const promptText = button.parentElement.querySelector('.prompt-text').innerText;
+            ejecutarCopia(promptText, button);
         }
-    } catch (err) {
-        console.error('Error al copiar:', err);
-    }
-    document.body.removeChild(textArea);
-}
 
-function mostrarExitoBoton(button) {
-    const originalText = button.innerHTML;
-    button.innerText = "¡Copiado!";
-    button.style.background = "var(--verde)";
-    setTimeout(() => {
-        button.innerHTML = originalText;
-        button.style.background = "var(--azul-oscuro)";
-    }, 2000);
-}
+        function ejecutarCopia(texto, boton) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(texto).then(() => {
+                    mostrarExitoBoton(boton);
+                }).catch(() => {
+                    fallbackCopiar(texto, boton);
+                });
+            } else {
+                fallbackCopiar(texto, boton);
+            }
+        }
 
-        // LÓGICA DE CAPTURA DE ENCUESTA INTERACTIVA
-        function submitPoll(option, selectedButton) {
-            eleccionUsuario = option;
+        function fallbackCopiar(texto, boton) {
+            const textArea = document.createElement("textarea");
+            textArea.value = texto;
+            textArea.style.position = "fixed";
+            textArea.style.top = "0";
+            textArea.style.left = "-9999px";
             
-            const botones = document.getElementById('pollOptions').querySelectorAll('.poll-option-btn');
-            botones.forEach(btn => btn.classList.remove('selected'));
-            selectedButton.classList.add('selected');
-            
-            document.getElementById('pollFeedbackContainer').style.display = 'block';
-            
-            // Inyección en tiempo real en la caja de recuperación del paso 5
-            document.getElementById('userChoiceText').innerText = `"${eleccionUsuario}"`;
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                if (document.execCommand('copy')) {
+                    mostrarExitoBoton(boton);
+                }
+            } catch (err) {
+                console.error('Error al copiar:', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function mostrarExitoBoton(button) {
+            const originalText = button.innerHTML;
+            button.innerText = "¡Copiado!";
+            button.style.background = "var(--verde)";
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.background = "var(--azul-oscuro)";
+            }, 2000);
         }
 
         function descargarBitacora(caso) {
-            let contenidoTexto = "";
+            const exp2 = document.getElementById('notaExperimento2').value || "No completado.";
+            const aula2 = document.getElementById('notaAula2').value || "No completado.";
             
-            if (caso === 1) {
-                const exp1 = document.getElementById('notaExperimento1').value || "No completado.";
-                const crit1 = document.getElementById('notaCriterio1').value || "No completado.";
-                const aula1 = document.getElementById('notaAula1').value || "No completado.";
-                const encuestaPrevia = eleccionUsuario || "No seleccionada.";
-                
-                contenidoTexto = 
-`==================================================
-  BITÁCORA DE TRABAJO - LABORATORIO DE IA (CASO 1)
-  Organización: ISEP Córdoba
-==================================================
-
-EJE: ¿Por qué la IA siempre me da la razón?
-Exploración sobre Sicofancia y aprendizaje por refuerzo (RLHF).
-
---------------------------------------------------
-0. EXPECTATIVA INICIAL SELECCIONADA EN LA ENCUESTA:
---------------------------------------------------
-${encuestaPrevia}
-
---------------------------------------------------
-1. NOTAS DE OBSERVACIÓN DEL EXPERIMENTO:
---------------------------------------------------
-${exp1}
-
---------------------------------------------------
-2. REFLEXIONES SOBRE EL EXPERIMENTO:
---------------------------------------------------
-${crit1}
-
---------------------------------------------------
-3. PLAN DE ACCIÓN O IDEAS DE APLICACIÓN:
---------------------------------------------------
-${aula1}
-
-==================================================
-Documento generado de manera local desde el laboratorio interactivo.
-==================================================`;
-            } else if (caso === 2) {
-                const exp2 = document.getElementById('notaExperimento2').value || "No completado.";
-                const crit2 = document.getElementById('notaCriterio2').value || "No completado.";
-                const aula2 = document.getElementById('notaAula2').value || "No completado.";
-                
-                contenidoTexto = 
+            const contenidoTexto = 
 `==================================================
   BITÁCORA DE TRABAJO - LABORATORIO DE IA (CASO 2)
   Organización: ISEP Córdoba
 ==================================================
 
-EJE: Prompt efectivo — "Lo que le decís define lo que recibís"
-Exploración sobre la transferencia de contexto implícito y marcos CLEAR.
+EJE: ¿Qué cambia cuando modificamos el contexto de una consulta?
+Exploración sobre contexto y formulación de consultas.
 
 --------------------------------------------------
 1. NOTAS DE OBSERVACIÓN DEL EXPERIMENTO:
@@ -652,12 +261,7 @@ Exploración sobre la transferencia de contexto implícito y marcos CLEAR.
 ${exp2}
 
 --------------------------------------------------
-2. REFLEXION SOBRE EL CONTEXTO EXPLICITADO:
---------------------------------------------------
-${crit2}
-
---------------------------------------------------
-3. PLAN DE ACCIÓN O IDEAS DE APLICACIÓN:
+2. PLAN DE ACCIÓN O IDEAS DE APLICACIÓN:
 --------------------------------------------------
 ${aula2}
 
@@ -673,17 +277,19 @@ Restricciones: [Qué límites fijás / Qué elementos NO debe incluir]
 ==================================================
 Documento generado de manera local desde el laboratorio interactivo.
 ==================================================`;
-            }
 
             const blob = new Blob([contenidoTexto], { type: "text/plain;charset=utf-8" });
             const enlaceInvisible = document.createElement("a");
             enlaceInvisible.href = URL.createObjectURL(blob);
-            enlaceInvisible.download = `Bitacora_Laboratorio_IA_Caso${caso}.txt`;
+            enlaceInvisible.download = `Bitacora_Laboratorio_IA_Caso2.txt`;
             
             document.body.appendChild(enlaceInvisible);
             enlaceInvisible.click();
             document.body.removeChild(enlaceInvisible);
         }
+
+        // Inicializar el carrusel
+        updateCarousel();
     </script>
 </body>
 </html>
